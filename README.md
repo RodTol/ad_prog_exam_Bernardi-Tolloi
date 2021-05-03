@@ -2,3 +2,4 @@
 Ciao giulia sono Rodolfo
 Ciao Rodolfo!
 Ma che bella giornata
+Sto provando cose
