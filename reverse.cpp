@@ -1,10 +1,10 @@
 #include <iostream>
 
 template <typename K> 
-K* arr(K const n);
+double* arr(K const n);
 
 template <typename T>
-void rev (T const n, int* vett);
+void rev (T const n, double* vett);
 
 int main () {
 
@@ -13,7 +13,7 @@ int main () {
  std::cin >> n;
 
  /*creo il pointer e lo ottengo dal chiamare la funzione*/
- int* vettore;
+ double* vettore;
  
  vettore = arr(n);
 
@@ -38,9 +38,9 @@ int main () {
 
 /*funzione che crea l'array con i valori data una dimensione n*/
 template <typename K> 
-K* arr(K const n) {
+double* arr(K const n) {
 
-    int* vett{new int[n]};
+    double* vett{new double[n]};
 
     std::cout << "Inserisci " << n << " elementi:\n";
     for (int i = 0; i < n; i++)
@@ -57,7 +57,7 @@ K* arr(K const n) {
 
 /*funzione che inverte l'array*/
 template <typename T>
-void rev(T const n, int* vett) {
+void rev(T const n, double* vett) {
 
     /*mi sposto nell'ultimo indirizzo di memoria*/
     /*ocho che l'ultimo e lo 0 finale, quindi n-1*/
