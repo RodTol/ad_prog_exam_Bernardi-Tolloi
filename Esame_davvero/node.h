@@ -14,39 +14,62 @@ Date: May, 2021.
 #include<iostream>
 
 template <typename T>
-class node {
-
-    /*pointers to children*/ 
-    std::unique_ptr<node> right;
-    std::unique_ptr<node> left;
+struct node {
 
     /*attribute of the node (which can be of any type
     including a pair)*/
     T attr;
 
+    /*pointers to children*/ 
+    std::unique_ptr<node> right;
+    std::unique_ptr<node> left;
 
-    public :
+    /*raw pointer to parent*/
+    node* parent;
 
-        /*constructor default*/
-        node() = default;
+    /*constructor default*/
+    node() = default;
+    
+    /*custom constructor without parent node*/
+    node(const T& input) :
+    attr{input},
+    right{nullptr},
+    left{nullptr},
+    parent{nullptr}
+    {
+        std::cout << "node custom constructor no parent" << std::endl;
+    }
 
-        /*custom constructor*/
-        node(const T& input) :
-         attr{input},
-         right{nullptr},
-         left{nullptr}  
-         {
-             std::cout << "node custom constructor" << std::endl;
-         }
-            
-        /*destructor*/
-        ~node () = default;
-        
-        /*put to*/
-        friend
-        std::ostream& operator<<(std::ostream& os, const node& x) {
-         os << x.attr << " " << &(x.right) << " " << &(x.left);
-         return os;
+    /*custom constructor with parent node*/
+    node(const T& input, node<T>* input_pointer, int i) :
+    attr{input},
+    right{nullptr},
+    left{nullptr},
+    parent{input_pointer}
+    {
+
+        if (i == 0)
+        {
+            std::cout << "node custom constructor parent left" << std::endl;
+            input_pointer->left.reset(this);
         }
+        else
+        {
+            std::cout << "node custom constructor parent right" << std::endl;
+            input_pointer->right.reset(this);
+        }
+        
+    }
+        
+    /*destructor*/
+    ~node () = default;
+    
+    /*put to*/
+    friend
+    std::ostream& operator<<(std::ostream& os, const node& x) {
+    os << x.attr << " " << x.left.get() << " " << x.right.get() << "\n";
+    os << x.parent; 
+    return os;
+    }
 };
 
