@@ -32,6 +32,6 @@ public:
     ~bst() = default;
 
     /*INSERT*/
-    //std::pair<iterator,bool> insert (attr_type& x)
+    std::pair<iterator,bool> insert (attr_type& x)
 
 };

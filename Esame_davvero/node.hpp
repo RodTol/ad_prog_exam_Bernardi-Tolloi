@@ -63,13 +63,23 @@ struct node {
         
     /*destructor*/
     ~node () = default;
+
+    void set_left_child(node* child) {
+        left.reset(child);
+        child -> parent = this;
+    }
     
-    /*put to*/
+    void set_right_child(node* child) {
+        right.reset(child);
+        child -> parent = this;
+    }
+
     friend
+    /*put to*/
     std::ostream& operator<<(std::ostream& os, const node& x) {
-    os << x.attr << " " << x.left.get() << " " << x.right.get() << "\n";
-    os << x.parent; 
+        os << x.attr << " " << x.left.get() << " " << x.right.get() << " " << x.parent << "\n"; 
     return os;
     }
 };
+
 

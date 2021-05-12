@@ -47,8 +47,9 @@ public:
     _iterator &operator++() {
 
      node<type_of_attr>* dad;
+     node<type_of_attr>* start;
 
-        if (current->right)       /*se non funzia metti != nullptr*/
+        if (current->right)
         {
           /*metto current uguale a un raw pointer (grazie a .get) che punta
           all'elemnto puntato da right del mio current originale*/
@@ -66,11 +67,27 @@ public:
         {
           /*passo al genitore*/
           dad = current->parent;
+
+          /*salvo il punto di partenza*/
+          start = current;
           
-            while (dad->right.get() == current )
+          
+            while ( dad->right.get() == current )
             {
               dad = dad->parent;
               current = current->parent;
+              
+              /*metto un esclusione nel caso sono gia 
+              nel nodo end (quello più alto)*/
+
+              //NOTA:: se vuoi mettilo con end
+              if (!dad)
+              {
+                current = start;
+                std::cout << "we are already at the end" << std::endl;
+                return *this;
+              }
+              
             }
           current = current->parent;
           return *this;  
