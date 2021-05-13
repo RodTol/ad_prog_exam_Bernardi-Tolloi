@@ -8,15 +8,15 @@ Date: May, 2021.
 
 #include<iterator>
 
-template<typename type_of_attr>
+template<typename node_type, typename key_type>
 class _iterator {
 
     /*raw pointer to the starting node*/
-    node<type_of_attr>* current;
+    node_type* current;
 
 public:
   /*type of the attribute of the node*/
-  using value_type = type_of_attr;
+  using value_type = key_type;
   /*type of reference and pointer from the iterator*/
   using reference = value_type&;
   using pointer = value_type*;
@@ -27,7 +27,7 @@ public:
     /*custom costr. Mettiamo explicit e quindi dobbiamo
     chiamare il costr ogni volta, poichè non abbiamo la 
     conversione automatica da nodo a iterator*/
-    explicit _iterator(node<type_of_attr>* input):
+    explicit _iterator(node_type* input):
         current{input}
     {
       std::cout << "iterator custom constructor" << std::endl;
@@ -46,8 +46,8 @@ public:
     /*pre-increment operator*/
     _iterator &operator++() {
 
-     node<type_of_attr>* dad;
-     node<type_of_attr>* start;
+     node_type* dad;
+     node_type* start;
 
         if (current->right)
         {

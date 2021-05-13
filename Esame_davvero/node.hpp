@@ -41,43 +41,32 @@ struct node {
     }
 
     /*custom constructor with parent node*/
-    node(const T& input, node<T>* input_pointer, int i) :
+    node(const T& input, node* input_pointer) :
     attr{input},
     right{nullptr},
     left{nullptr},
-    parent{input_pointer}
-    {
-
-        if (i == 0)
-        {
-            std::cout << "node custom constructor parent left" << std::endl;
-            input_pointer->left.reset(this);
-        }
-        else
-        {
-            std::cout << "node custom constructor parent right" << std::endl;
-            input_pointer->right.reset(this);
-        }
-        
-    }
+    parent{input_pointer} {}
         
     /*destructor*/
     ~node () = default;
 
-    void set_left_child(node* child) {
-        left.reset(child);
-        child -> parent = this;
+    /*Funzioni: */
+    // DA VEDERE SE LASCIARE FORWARD
+    void create_left_child(T child_attr) {
+        left = std::make_unique<node>(std::forward<T>(child_attr), this);
     }
     
-    void set_right_child(node* child) {
-        right.reset(child);
-        child -> parent = this;
+    void create_right_child(T child_attr) {
+        right = std::make_unique<node>(std::forward<T>(child_attr), this); 
     }
 
+
+    //OCHO AL PUT TO CHE VA BENE SOLO PER LE PAIR
+
     friend
-    /*put to*/
+    /*put to da rimuovere perche lo metteremo in bst*/
     std::ostream& operator<<(std::ostream& os, const node& x) {
-        os << x.attr << " " << x.left.get() << " " << x.right.get() << " " << x.parent << "\n"; 
+        os << x.attr.first << " " << x.left.get() << " " << x.right.get() << " " << x.parent << "\n"; 
     return os;
     }
 };
