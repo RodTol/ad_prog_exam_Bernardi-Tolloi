@@ -8,7 +8,7 @@
 
 int main () {
 
-    using pair = std::pair<int,int>;
+    using pair = std::pair<const int,int>;
 
     /*node<int> nodo1{8};
 
@@ -38,10 +38,11 @@ int main () {
     */
 
     pair pair1{8,2};
-    pair pair2{6,2};
+    pair pair2{6,5};
     pair pair3{7,2};
     pair pair4{10,2};
-
+    pair pair5{9,2};
+/*
     bst< int, int, std::less<int> > albero {pair1};
     (*(albero.head)).create_left_child(pair2); 
     (*(albero.head)).create_right_child(pair4);
@@ -70,5 +71,44 @@ int main () {
     bst<int, int, std::less<int>> albero2;
     std::cout << "begin  2\n" << albero2.begin() << std::endl;
     std::cout << "find nodo = 11\n" << albero.find(11) << std::endl;
+
+    albero.insert(pair1);
+    std::cout << "insert di pair1\n" << albero.insert(pair1).first << " " << albero.insert(pair1).second << std::endl;
+*/
+    bst<const int, int, std::less<int> > albero3 {};
+    albero3.insert(pair1);
+    albero3.insert(pair2);
+    albero3.insert(pair3);
+    albero3.insert(pair4);
+    //albero3.insert(pair5);
+    albero3.emplace(13,2);
+
+    std::cout << "Head\n" << *(albero3.head) << std::endl;
+    std::cout << "Memoria di nodo 1\n" << &((*(albero3.head))) << std::endl;
+
+    std::cout << "Nodo 2\n" << (*((*(albero3.head)).left)) << std::endl;
+    std::cout << "Memoria di nodo 2\n" << &( *( (*(albero3.head)).left ) ) << std::endl;
+
+    std::cout << "Nodo 3\n" << *( *( (*(albero3.head)).left ) ).right << std::endl;
+    std::cout << "Memoria di nodo 3\n" << &(*( *( (*(albero3.head)).left ) ).right) << std::endl;
+
+   
+    std::cout << "Nodo 5\n" << *(*((*(albero3.head)).right)).right << std::endl;
+    std::cout << "Memoria di nodo 5\n" << &(*(*((*(albero3.head)).right)).right) << std::endl;
+
+
+    std::cout << "Value del nodo 6 " << albero3[6] << std::endl;
+    std::cout << "Value del nodo 24" << albero3[24] << std::endl;
+
+    std::cout << "Prova di insert\n" << albero3.insert(pair5).first << "  " << albero3.insert(pair5).second << std::endl;
+
+    std::cout << "Nodo 4\n" << (*((*(albero3.head)).right)) << std::endl;
+    std::cout << "Memoria di nodo 4\n" << &(*((*(albero3.head)).right)) << std::endl;
+
+    std::cout << "Albero 3 " << albero3 << std::endl;
+
+    albero3.clear();
+    
+
 }
 

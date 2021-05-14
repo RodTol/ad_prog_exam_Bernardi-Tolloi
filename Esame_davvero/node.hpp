@@ -37,7 +37,7 @@ struct node {
     left{nullptr},
     parent{nullptr}
     {
-        std::cout << "node custom constructor no parent" << std::endl;
+        std::cout << "Node custom constructor no parent" << std::endl;
     }
 
     /*custom constructor with parent node*/

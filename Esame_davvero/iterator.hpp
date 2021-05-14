@@ -8,7 +8,7 @@ Date: May, 2021.
 
 #include<iterator>
 
-template<typename node_type, typename key_type>
+template<typename node_type, typename attr_type>
 class _iterator {
 
     /*raw pointer to the starting node*/
@@ -16,7 +16,7 @@ class _iterator {
 
 public:
   /*type of the attribute of the node*/
-  using value_type = key_type;
+  using value_type = attr_type;
   /*type of reference and pointer from the iterator*/
   using reference = value_type&;
   using pointer = value_type*;
@@ -30,7 +30,7 @@ public:
     explicit _iterator(node_type* input):
         current{input}
     {
-      std::cout << "iterator custom constructor" << std::endl;
+     // std::cout << "iterator custom constructor" << std::endl;
     };
 
     /*default cost and destr*/
@@ -44,10 +44,9 @@ public:
     pointer operator->() const { return &**this; }
 
     /*pre-increment operator*/
-    _iterator &operator++() {
+    _iterator &operator++() noexcept {
 
      node_type* dad;
-     node_type* start;
 
         if (current->right)
         {
@@ -67,12 +66,8 @@ public:
         {
           /*passo al genitore*/
           dad = current->parent;
-
-          /*salvo il punto di partenza*/
-          start = current;
-          
-          
-            while ( dad->right.get() == current )
+    
+            while (dad && dad->right.get() == current)
             {
               dad = dad->parent;
               current = current->parent;
@@ -81,15 +76,15 @@ public:
               nel nodo end (quello più alto)*/
 
               //NOTA:: se vuoi mettilo con end
-              if (!dad)
+              /*if (!dad)
               {
                 current = start;
                 std::cout << "we are already at the end" << std::endl;
                 return *this;
-              }
+              }*/
               
             }
-          current = current->parent;
+          current = dad;
           return *this;  
         }
 
@@ -102,6 +97,15 @@ public:
     return os;
     }
     
+    /*logic equal*/
+    bool operator==(const _iterator& input) const noexcept {
+      return input.current == current;
+    }
+
+    /*logic not equal*/
+    bool operator!=(const _iterator& input) const noexcept {
+      return !(input == *this);
+    }
 
 };
 
