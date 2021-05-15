@@ -36,12 +36,14 @@ int main () {
     j=++i;
     std::cout << "iterator j " << j << std::endl; 
     */
-
-    pair pair1{8,2};
-    pair pair2{6,5};
-    pair pair3{7,2};
-    pair pair4{10,2};
-    pair pair5{9,2};
+   const int a{8};
+   const pair pair1{a,2};
+   const pair pair2{6,5};
+   const pair pair3{10,2};
+   const pair pair4{7,2};
+   const pair pair5{9,2};
+   const pair pair6{1,2};
+   const pair pair7{2,2};
 /*
     bst< int, int, std::less<int> > albero {pair1};
     (*(albero.head)).create_left_child(pair2); 
@@ -75,6 +77,7 @@ int main () {
     albero.insert(pair1);
     std::cout << "insert di pair1\n" << albero.insert(pair1).first << " " << albero.insert(pair1).second << std::endl;
 */
+/*
     bst<const int, int, std::less<int> > albero3 {};
     albero3.insert(pair1);
     albero3.insert(pair2);
@@ -105,10 +108,23 @@ int main () {
     std::cout << "Nodo 4\n" << (*((*(albero3.head)).right)) << std::endl;
     std::cout << "Memoria di nodo 4\n" << &(*((*(albero3.head)).right)) << std::endl;
 
-    std::cout << "Albero 3 " << albero3 << std::endl;
+    std::cout << "Albero 3 \n" << albero3 << std::endl;
 
     albero3.clear();
-    
+ */  
+    bst<const int, int, std::less<int> > albero1 {};
+    albero1.insert(pair1);
+    albero1.insert(pair2);
+    albero1.insert(pair3);
+    albero1.insert(pair4);
+    albero1.insert(pair5);
+    albero1.insert(pair6);
+    albero1.insert(pair7);
+    std::cout << "Albero 1 \n" << albero1 <<std::endl;
+    std::cout << "Dimensioni albero 1\n " << albero1.size() << std::endl;
 
+    albero1.begin();
+    albero1.balance();
+    
 }
 

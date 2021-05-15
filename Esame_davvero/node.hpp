@@ -16,55 +16,51 @@ Date: May, 2021.
 template <typename T>
 struct node {
 
-    /*attribute of the node (which can be of any type
+    /*Attribute of the node (which can be of any type
     including a pair)*/
     T attr;
 
-    /*pointers to children*/ 
+    /*Pointers to children*/ 
     std::unique_ptr<node> right;
     std::unique_ptr<node> left;
 
-    /*raw pointer to parent*/
+    /*Raw pointer to parent*/
     node* parent;
 
-    /*constructor default*/
+    /*Constructor default*/
     node() = default;
+    /*Destructor*/
+    ~node () = default;
     
-    /*custom constructor without parent node*/
-    node(const T& input) :
+    /*Custom constructor without parent node*/
+    explicit node(const T& input) noexcept :
     attr{input},
     right{nullptr},
     left{nullptr},
     parent{nullptr}
-    {
-        std::cout << "Node custom constructor no parent" << std::endl;
-    }
+    {}
 
-    /*custom constructor with parent node*/
-    node(const T& input, node* input_pointer) :
+    /*Custom constructor with parent node* from input*/
+    node(const T& input, node* input_pointer) noexcept:
     attr{input},
     right{nullptr},
     left{nullptr},
     parent{input_pointer} {}
-        
-    /*destructor*/
-    ~node () = default;
 
-    /*Funzioni: */
-    // DA VEDERE SE LASCIARE FORWARD
+    /*Functions: */
+    /*This function create a left child of a node of our choice*/
     void create_left_child(T child_attr) {
         left = std::make_unique<node>(std::forward<T>(child_attr), this);
     }
-    
+    /*This function create a right child of a node of our choice*/
     void create_right_child(T child_attr) {
         right = std::make_unique<node>(std::forward<T>(child_attr), this); 
     }
 
-
-    //OCHO AL PUT TO CHE VA BENE SOLO PER LE PAIR
-
     friend
-    /*put to da rimuovere perche lo metteremo in bst*/
+    /*custom overloading of the put to operator for the nodes. This function
+    was created with a debugging purpouse, and can be used only if the attr
+    of the nodes is of type pair.*/
     std::ostream& operator<<(std::ostream& os, const node& x) {
         os << x.attr.first << " " << x.left.get() << " " << x.right.get() << " " << x.parent << "\n"; 
     return os;

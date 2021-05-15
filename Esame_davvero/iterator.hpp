@@ -11,101 +11,88 @@ Date: May, 2021.
 template<typename node_type, typename attr_type>
 class _iterator {
 
-    /*raw pointer to the starting node*/
-    node_type* current;
+  /*raw pointer to the starting node*/
+  node_type* current;
 
 public:
-  /*type of the attribute of the node*/
+
+  /*interface for the iterators*/
   using value_type = attr_type;
-  /*type of reference and pointer from the iterator*/
   using reference = value_type&;
   using pointer = value_type*;
-
   using difference_type = std::ptrdiff_t;
   using iterator_category = std::forward_iterator_tag;
 
-    /*custom costr. Mettiamo explicit e quindi dobbiamo
-    chiamare il costr ogni volta, poichè non abbiamo la 
-    conversione automatica da nodo a iterator*/
-    explicit _iterator(node_type* input):
-        current{input}
-    {
-     // std::cout << "iterator custom constructor" << std::endl;
-    };
+  /*default cost and destr*/
+  _iterator() = default;
+  ~_iterator() = default;
 
-    /*default cost and destr*/
-    _iterator() = default;
-    ~_iterator() = default;
+  /*custom costr. Mettiamo explicit e quindi dobbiamo
+  chiamare il costr ogni volta, poichè non abbiamo la 
+  conversione automatica da nodo a iterator*/
+  explicit _iterator (node_type* input) noexcept:
+      current{input} {};
 
-    /*dereference operator*/
-    reference operator*() const { return current->attr; }
+  /*dereference operator*/
+  reference operator*() const noexcept { return current->attr; }
 
-    /*acces operator*/
-    pointer operator->() const { return &**this; }
+  /*acces operator*/
+  pointer operator->() const noexcept { return &**this; }
 
-    /*pre-increment operator*/
-    _iterator &operator++() noexcept {
+  /*pre-increment operator*/
+  /*SPIEGA COME FUNZIONA*/
+  _iterator &operator++() noexcept {
 
-     node_type* dad;
+    node_type* dad;
 
-        if (current->right)
-        {
-          /*metto current uguale a un raw pointer (grazie a .get) che punta
-          all'elemnto puntato da right del mio current originale*/
-          current = current->right.get();
+      if (current->right)
+      {
+        /*metto current uguale a un raw pointer (grazie a .get) che punta
+        all'elemnto puntato da right del mio current originale*/
+        current = current->right.get();
 
-            /*finchè ho un left*/
-            while (current->left)
-            {
-                current = current->left.get();
-            }
-         return *this;
-        }
+          /*finchè ho un left*/
+          while (current->left)
+          {
+              current = current->left.get();
+          }
 
-        else 
-        {
-          /*passo al genitore*/
-          dad = current->parent;
-    
-            while (dad && dad->right.get() == current)
-            {
-              dad = dad->parent;
-              current = current->parent;
-              
-              /*metto un esclusione nel caso sono gia 
-              nel nodo end (quello più alto)*/
+        return *this;
+      }
 
-              //NOTA:: se vuoi mettilo con end
-              /*if (!dad)
-              {
-                current = start;
-                std::cout << "we are already at the end" << std::endl;
-                return *this;
-              }*/
-              
-            }
-          current = dad;
-          return *this;  
-        }
+      else 
+      {
+        /*passo al genitore*/
+        dad = current->parent;
+  
+          while (dad && dad->right.get() == current)
+          {
+            dad = dad->parent;
+            current = current->parent;            
+          }
+          
+        current = dad;
+        return *this;  
+      }
 
-    }
-    
-    /*put to*/
-    friend
-    std::ostream& operator<<(std::ostream& os, const _iterator& x) {
-    os << x.current;
-    return os;
-    }
-    
-    /*logic equal*/
-    bool operator==(const _iterator& input) const noexcept {
-      return input.current == current;
-    }
+  }
+  
+  /*put to*/
+  friend
+  std::ostream& operator<<(std::ostream& os, const _iterator& x) {
+  os << x.current;
+  return os;
+  }
+  
+  /*logic equal*/
+  bool operator==(const _iterator& input) const noexcept {
+    return input.current == current;
+  }
 
-    /*logic not equal*/
-    bool operator!=(const _iterator& input) const noexcept {
-      return !(input == *this);
-    }
+  /*logic not equal*/
+  bool operator!=(const _iterator& input) const noexcept {
+    return !(input == *this);
+  }
 
 };
 
