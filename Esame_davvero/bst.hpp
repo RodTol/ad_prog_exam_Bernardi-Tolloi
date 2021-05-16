@@ -310,6 +310,7 @@ public:
         balance(tmp, 0, tmp.size());
     }
 
+    /*side function for the balance function*/
     void balance(std::vector<attr_type>& tmp, std::size_t left, std::size_t right) noexcept {
     if ( right - left < 1)
         return;
@@ -319,6 +320,125 @@ public:
     balance(tmp, left, half);
     balance(tmp, half + 1, right);
     }
+
+    /*find min of a subtree*/
+    node<attr_type>* min_sub (node<attr_type>* start) {
+        while(start -> left) {
+            start = start -> left.get();
+        }
+        return start;
+    }    
+
+    /*erase*/
+    /*speiga come funziona con il fatto che prendi il min del subtree di 
+    dx e lo metti come nuovo nodo*/
+    void erase(const key_type& x) {
+        if (!_find(x))
+        {
+            std::cout << "A node with such key doesn't exist \n";
+            return;
+        }
+        else {
+            /*the node with searched key has no child*/
+            if ( !(_find(x)->left)  &&  !(_find(x)->right) ) 
+            {
+                if ( !(_find(x)->parent))
+                {
+                    head.reset();
+                }
+                else
+                {
+                    if (_find(x)->parent->left.get() == _find(x))
+                    {
+                        _find(x)->parent->left.reset(); 
+                    }
+                    else
+                    {
+                        _find(x)->parent->right.reset();
+                    }
+                }
+            }
+            /*the node has only left child*/
+            else if ( (_find(x)->left) &&  !(_find(x)->right) )
+            {
+                if ( !(_find(x)->parent) )
+                {
+                    _find(x)->left-> parent = nullptr;
+                    head.reset(_find(x)->left.release());
+                }
+                else
+                {
+                    _find(x)->left->parent = _find(x)->parent;
+                    if (_find(x)->parent ->left.get() == _find(x))
+                    {
+                        _find(x)->parent->left.reset(_find(x)->left.release());
+                    }
+                    else 
+                    {
+                        _find(x)->parent->right.reset(_find(x)->left.release());
+                    }
+
+                }
+                
+            }
+            /*the node has only right child*/
+            else if ( !(_find(x)->left) &&  (_find(x)->right) )
+            {
+                if ( !(_find(x)->parent) )
+                {
+                    _find(x)->right-> parent = nullptr;
+                    head.reset(_find(x)->right.release());
+                }
+                else
+                {
+                    _find(x)->right->parent = _find(x)->parent;
+                    if (_find(x)->parent ->left.get() == _find(x))
+                    {
+                        _find(x)->parent->left.reset(_find(x)->right.release());
+                    }
+                    else 
+                    {
+                        _find(x)->parent->right.reset(_find(x)->right.release());
+                    }
+
+                }
+                
+            }
+            /*the node has both left and right child*/
+            else if ( (_find(x)->left) &&  (_find(x)->right))
+            {
+                if ( !(_find(x)->parent) )
+                {
+                    /*Finding the leftmost of the right subtree*/
+                   node<attr_type>* subst {min_sub(_find(x)->right.get())};
+                   key_type tmp {subst->attr.first};
+                   attr_type tmp_pair{subst->attr};
+                   
+                    /*I erase the node of the key, which will be substituete for the original erased node*/
+                    erase(tmp);
+
+                   /*I create a node with tmp key and pointers of _find(x)*/
+                    //node<attr_type> new_node {tmp, nullptr};
+                    //node<attr_type>* ptr_new_node {&new_node};
+
+                    head = std::make_unique<node<attr_type>>(std::forward<attr_type>(tmp_pair),nullptr);
+
+                    /*Fixing the parents of the two children*/
+                    _find(x)->left->parent = head.get();
+                    _find(x)->right->parent = head.get();
+                
+                    /*Setting the pointer of new node to the children*/
+                    head->right.reset(_find(x)->right.release());
+                    head->left.reset(_find(x)->left.release());
+
+                }
+                
+            }
+            
+        }
+    }
+
+
 };
 
 

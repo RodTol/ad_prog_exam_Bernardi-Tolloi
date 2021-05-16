@@ -123,8 +123,27 @@ int main () {
     std::cout << "Albero 1 \n" << albero1 <<std::endl;
     std::cout << "Dimensioni albero 1\n " << albero1.size() << std::endl;
 
-    albero1.begin();
-    albero1.balance();
-    
+    std::cout<< "Nodo 10 pre elim\n" << (*(*albero1.head).right) << std::endl;
+
+    albero1.erase(9);
+
+    std::cout<< "Albero dopo eliminazione \n" << albero1 << std::endl;
+    std::cout<< "Nodo 10\n" << (*(*albero1.head).right) << std::endl;
+    //albero1.begin();
+    //albero1.balance();
+    std::cout << "--------------------------------------\n"; 
+    bst<int, int, std::less<int> > albero4;
+    albero4.insert(pair1);
+    albero4.insert(pair2);
+    albero4.insert(pair4);
+    albero4.insert(pair6);
+    std::cout<< "Nodo testa\n" << (*albero4.head) << std::endl;
+    std::cout<< "Minimo del sub tree di sx\n" << *(albero4.min_sub((*albero4.head).left.get())) <<std::endl;
+
+    /*albero4.erase(10);
+    std::cout << "albero 4\n" << albero4 << std::endl;
+    std::cout << "memo di head\n" << albero4.head.get() << std::endl;
+    std::cout << "head albero 4\n" << (*albero4.head) << std::endl;
+    std::cout << "figlio dx di head\n" << (*(*albero4.head).right) << std::endl;*/
 }
 
