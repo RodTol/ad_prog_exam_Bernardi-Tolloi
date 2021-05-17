@@ -46,6 +46,21 @@ struct node {
     left{nullptr},
     parent{input_pointer} {}
 
+    /*copy ctor (it copies starting node and all of his children, but no parent)*/
+    node(const node& node_to_copy, node* new_parent):
+    attr{node_to_copy.attr},
+    right{nullptr},
+    left{nullptr},
+    parent{new_parent} {
+        if (node_to_copy.right) {
+            right = std::make_unique<node>(*node_to_copy.right, this);
+        }
+        if (node_to_copy.left) {
+            left = std::make_unique<node>(*node_to_copy.left, this);
+        }
+    }
+
+
     /*Functions: */
     /*This function create a left child of a node of our choice*/
     void create_left_child(T child_attr) {

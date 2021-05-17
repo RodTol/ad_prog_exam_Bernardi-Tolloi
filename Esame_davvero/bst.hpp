@@ -117,6 +117,37 @@ public:
     explicit bst (attr_type starting_attr) noexcept:
     head {std::make_unique<node <attr_type> >(std::forward<attr_type>(starting_attr), nullptr)} {}
 
+    /*copy ctor*/
+    explicit bst(const bst& tree_to_copy):
+    compare_operator {tree_to_copy.compare_operator},
+    head {std::make_unique<node <attr_type> >(*tree_to_copy.head.get(), nullptr)} {}
+
+    /*copy assignement*/
+    bst& operator=(const bst& tree_to_copy) {
+        if (this!=&tree_to_copy)
+        {
+             clear();
+            head = std::make_unique<node <attr_type> >(*tree_to_copy.head.get(), nullptr);
+        }
+        return *this;
+    }   
+
+    /*move ctor*/
+    explicit bst(bst&& tree_to_copy):
+    compare_operator {std::move(tree_to_copy.compare_operator)},
+    head {std::move(tree_to_copy.head)} {}
+
+    /*move assignement*/
+    bst& operator=(bst&& tree_to_copy) {
+        if (this!=&tree_to_copy)
+        {
+            compare_operator = std::move(tree_to_copy.compare_operator);
+            head = std::move(tree_to_copy.head);
+        }
+        std::cout << "move ass" << std::endl;
+        return *this;
+    }
+
     /*begin*/
     iterator begin() noexcept {
         if (!head) {
