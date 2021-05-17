@@ -104,7 +104,7 @@ class bst
             return std::make_pair (iterator{head.get()} , true); 
         }
     }
-   
+
 public:
 
     std::unique_ptr<node<attr_type>> head;
@@ -310,6 +310,8 @@ public:
         balance(tmp, 0, tmp.size());
     }
 
+
+
     /*side function for the balance function*/
     void balance(std::vector<attr_type>& tmp, std::size_t left, std::size_t right) noexcept {
     if ( right - left < 1)
@@ -321,7 +323,7 @@ public:
     balance(tmp, half + 1, right);
     }
 
-    /*find min of a subtree*/
+    /*find min of the a subtree*/
     node<attr_type>* min_sub (node<attr_type>* start) {
         while(start -> left) {
             start = start -> left.get();
@@ -407,31 +409,19 @@ public:
             /*the node has both left and right child*/
             else if ( (_find(x)->left) &&  (_find(x)->right))
             {
-                if ( !(_find(x)->parent) )
-                {
-                    /*Finding the leftmost of the right subtree*/
-                   node<attr_type>* subst {min_sub(_find(x)->right.get())};
-                   key_type tmp {subst->attr.first};
-                   attr_type tmp_pair{subst->attr};
-                   
-                    /*I erase the node of the key, which will be substituete for the original erased node*/
-                    erase(tmp);
+                /*i move the left subtree of _find(x)* to the left of the
+                leftomost of his right subtree. So, i am again in one of 
+                the case above*/
 
-                   /*I create a node with tmp key and pointers of _find(x)*/
-                    //node<attr_type> new_node {tmp, nullptr};
-                    //node<attr_type>* ptr_new_node {&new_node};
+                /*NOTA: il leftmost di un tree non ha per forza un left,
+                altrimenti non sarebbe tale*/
 
-                    head = std::make_unique<node<attr_type>>(std::forward<attr_type>(tmp_pair),nullptr);
+                node<attr_type>* min_of_subtree {min_sub(_find(x)->right.get())};
+                _find(x)->left->parent = min_of_subtree;
+                min_of_subtree->left = std::move(_find(x)->left);
 
-                    /*Fixing the parents of the two children*/
-                    _find(x)->left->parent = head.get();
-                    _find(x)->right->parent = head.get();
-                
-                    /*Setting the pointer of new node to the children*/
-                    head->right.reset(_find(x)->right.release());
-                    head->left.reset(_find(x)->left.release());
 
-                }
+                erase(x);
                 
             }
             

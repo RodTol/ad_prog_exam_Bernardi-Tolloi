@@ -9,12 +9,10 @@ Date: May, 2021.
 #include<iterator>
 
 template<typename node_type, typename attr_type>
-class _iterator {
+struct _iterator {
 
   /*raw pointer to the starting node*/
   node_type* current;
-
-public:
 
   /*interface for the iterators*/
   using value_type = attr_type;

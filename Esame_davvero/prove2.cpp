@@ -31,10 +31,12 @@ int main () {
     std::cout<< "Albero \n" << albero;
     std::cout<< "Head of tree \n" << *albero.head.get() << std::endl;
 
-    albero.erase(8);
+    albero.erase(3);
 
     std::cout<< "Albero after removal \n" << albero;
-    std::cout<< "New head of tree\n" << *albero.head.get() << std::endl;
+    std::cout<< "New 3\n" << (*(*albero.head.get()).left) << std::endl;
+    std::cout<< "New 4\n" << *(albero.find(4).current) << std::endl;
+    std::cout<< "LEft of new 4\n" << *(albero.find(4).current->left) << std::endl;
     
     
 }
