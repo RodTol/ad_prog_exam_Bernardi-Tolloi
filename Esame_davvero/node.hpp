@@ -76,7 +76,32 @@ struct node {
     was created with a debugging purpouse, and can be used only if the attr
     of the nodes is of type pair.*/
     std::ostream& operator<<(std::ostream& os, const node& x) {
-        os << x.attr.first << " " << x.left.get() << " " << x.right.get() << " " << x.parent << "\n"; 
+        
+        os << "Key " << x.attr.first << "\n";
+
+        if (x.left.get())
+        {
+           os << "Left child " << (*x.left.get()).attr.first << "\n";
+        }
+        else {
+            os << "No left child\n"; 
+        }
+        
+        if (x.right.get())
+        {
+            os << "Right child " <<  (*x.right.get()).attr.first << "\n";
+        }
+        else {
+            os << "No right child\n"; 
+        }
+        
+        if (x.parent)
+        {
+           os << "Parent node " <<  (*x.parent).attr.first << "\n"; 
+        }
+        else {
+            os << "No parent node\n"; 
+        }
     return os;
     }
 };

@@ -53,7 +53,7 @@ class bst
                 return  curr;
             }
         }
-        std::cout << "I wasn't able to find a node with this key\n";
+        //std::cout << "I wasn't able to find a node with this key\n";
         return nullptr;
     }
 
@@ -81,7 +81,7 @@ class bst
 
                     else {
                         (*curr).create_left_child(x);
-                        std::cout << "Inserted left child\n";
+                        //std::cout << "Inserted left child\n";
                         return std::make_pair ( iterator{curr->left.get()} , true);
                     }
                 }
@@ -93,14 +93,14 @@ class bst
                     }
                     else {
                         (*curr).create_right_child(x);
-                        std::cout << "Inserted right child\n";
+                        //std::cout << "Inserted right child\n";
                         return std::make_pair ( iterator{curr->right.get()} , true);
                     }
                 }
             }
 
             head = std::make_unique<node<attr_type>>(std::forward<O>(x),nullptr);
-            std::cout << "Inserted as head" << std::endl;
+            //std::cout << "Inserted as head" << std::endl;
             return std::make_pair (iterator{head.get()} , true); 
         }
     }
@@ -144,8 +144,7 @@ public:
             compare_operator = std::move(tree_to_copy.compare_operator);
             head = std::move(tree_to_copy.head);
         }
-        std::cout << "move ass" << std::endl;
-        return *this;
+       return *this;
     }
 
     /*begin*/
@@ -349,7 +348,7 @@ public:
         return;
     auto half = ((left + right ) / 2);
     insert(tmp[half]);
-    std::cout << "From function balance:\n" << tmp[half].first << std::endl;
+    //std::cout << "From function balance:\n" << tmp[half].first << std::endl;
     balance(tmp, left, half);
     balance(tmp, half + 1, right);
     }
