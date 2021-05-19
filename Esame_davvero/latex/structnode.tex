@@ -1,0 +1,46 @@
+\hypertarget{structnode}{}\doxysection{node$<$ T $>$ Struct Template Reference}
+\label{structnode}\index{node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structnode_a489c42451796f699503f48b9e45a4c21}\label{structnode_a489c42451796f699503f48b9e45a4c21}} 
+{\bfseries node} (const T \&input) noexcept
+\item 
+\mbox{\Hypertarget{structnode_aec9a9ffda148a83afbbda14f471d0fbc}\label{structnode_aec9a9ffda148a83afbbda14f471d0fbc}} 
+{\bfseries node} (const T \&input, \mbox{\hyperlink{structnode}{node}} $\ast$input\+\_\+pointer) noexcept
+\item 
+\mbox{\Hypertarget{structnode_ab6d4417562cd9d19afb89ddcf0107b73}\label{structnode_ab6d4417562cd9d19afb89ddcf0107b73}} 
+{\bfseries node} (const \mbox{\hyperlink{structnode}{node}} \&node\+\_\+to\+\_\+copy, \mbox{\hyperlink{structnode}{node}} $\ast$new\+\_\+parent)
+\item 
+\mbox{\Hypertarget{structnode_a58e8882d88db368a156818a0262356c7}\label{structnode_a58e8882d88db368a156818a0262356c7}} 
+void {\bfseries create\+\_\+left\+\_\+child} (T child\+\_\+attr)
+\item 
+\mbox{\Hypertarget{structnode_a58b501707cebb07ba19832887a1e273a}\label{structnode_a58b501707cebb07ba19832887a1e273a}} 
+void {\bfseries create\+\_\+right\+\_\+child} (T child\+\_\+attr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structnode_ad789e1c037633ce25cf7a1cd851b4997}\label{structnode_ad789e1c037633ce25cf7a1cd851b4997}} 
+T {\bfseries attr}
+\item 
+\mbox{\Hypertarget{structnode_ae625e7985cf0d512ea40eb5d1ed53bd1}\label{structnode_ae625e7985cf0d512ea40eb5d1ed53bd1}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structnode}{node}} $>$ {\bfseries right}
+\item 
+\mbox{\Hypertarget{structnode_ae7315c0474c919d1926fbf3cc1253c73}\label{structnode_ae7315c0474c919d1926fbf3cc1253c73}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structnode}{node}} $>$ {\bfseries left}
+\item 
+\mbox{\Hypertarget{structnode_aa656fa405e35371dbe1f15bfe2729e18}\label{structnode_aa656fa405e35371dbe1f15bfe2729e18}} 
+\mbox{\hyperlink{structnode}{node}} $\ast$ {\bfseries parent}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structnode_ab3f85346e63728de537234c5e66d032d}\label{structnode_ab3f85346e63728de537234c5e66d032d}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{structnode}{node}} \&x)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+node.\+hpp\end{DoxyCompactItemize}

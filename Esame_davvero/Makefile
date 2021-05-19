@@ -25,5 +25,12 @@ clean:
 
 .PHONY: clean
 
+documentation: /home/rodolfo/Advanced-Programming/Esame/Esame_davvero/Doxygen/doxy.in
+	doxygen $^
+
+.PHONY: documentation
+
 main.x: iterator.hpp node.hpp bst.hpp
 benchmark-bst.x: iterator.hpp node.hpp bst.hpp
+
+
