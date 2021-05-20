@@ -1,0 +1,120 @@
+\hypertarget{structnode}{}\doxysection{node$<$ T $>$ Struct Template Reference}
+\label{structnode}\index{node$<$ T $>$@{node$<$ T $>$}}
+
+
+{\ttfamily \#include $<$node.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structnode_a444df3103a443654823ca9b4380451a8}{node}} ()=default
+\item 
+\mbox{\hyperlink{structnode_a9f90ba0e5a5939152034c42eaa792813}{$\sim$node}} ()=default
+\item 
+\mbox{\hyperlink{structnode_a489c42451796f699503f48b9e45a4c21}{node}} (const T \&input) noexcept
+\item 
+\mbox{\hyperlink{structnode_aec9a9ffda148a83afbbda14f471d0fbc}{node}} (const T \&input, \mbox{\hyperlink{structnode}{node}} $\ast$input\+\_\+pointer) noexcept
+\item 
+\mbox{\hyperlink{structnode_ab6d4417562cd9d19afb89ddcf0107b73}{node}} (const \mbox{\hyperlink{structnode}{node}} \&node\+\_\+to\+\_\+copy, \mbox{\hyperlink{structnode}{node}} $\ast$new\+\_\+parent)
+\item 
+\mbox{\Hypertarget{structnode_a58e8882d88db368a156818a0262356c7}\label{structnode_a58e8882d88db368a156818a0262356c7}} 
+void {\bfseries create\+\_\+left\+\_\+child} (T child\+\_\+attr)
+\item 
+\mbox{\Hypertarget{structnode_a58b501707cebb07ba19832887a1e273a}\label{structnode_a58b501707cebb07ba19832887a1e273a}} 
+void {\bfseries create\+\_\+right\+\_\+child} (T child\+\_\+attr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{structnode_ad789e1c037633ce25cf7a1cd851b4997}{attr}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structnode}{node}} $>$ \mbox{\hyperlink{structnode_ae625e7985cf0d512ea40eb5d1ed53bd1}{right}}
+\item 
+\mbox{\Hypertarget{structnode_ae7315c0474c919d1926fbf3cc1253c73}\label{structnode_ae7315c0474c919d1926fbf3cc1253c73}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structnode}{node}} $>$ {\bfseries left}
+\item 
+\mbox{\hyperlink{structnode}{node}} $\ast$ \mbox{\hyperlink{structnode_aa656fa405e35371dbe1f15bfe2729e18}{parent}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structnode_ab3f85346e63728de537234c5e66d032d}\label{structnode_ab3f85346e63728de537234c5e66d032d}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{structnode}{node}} \&x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+struct node$<$ T $>$}
+
+Author\+: Rodolfo Tolloi, Giulia Bernardi.
+
+Purpouse\+: create a custom class named node which implements a node for a binary search tree (B\+ST). Each node has two unique pointers, named right and left, and can have only one father\textquotesingle{}s node.
+
+Date\+: May, 2021. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structnode_a444df3103a443654823ca9b4380451a8}\label{structnode_a444df3103a443654823ca9b4380451a8}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!node@{node}}
+\index{node@{node}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{node()}{node()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::\mbox{\hyperlink{structnode}{node}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default constructor \mbox{\Hypertarget{structnode_a9f90ba0e5a5939152034c42eaa792813}\label{structnode_a9f90ba0e5a5939152034c42eaa792813}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!````~node@{$\sim$node}}
+\index{````~node@{$\sim$node}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$node()}{~node()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{structnode}{node}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default destructor \mbox{\Hypertarget{structnode_a489c42451796f699503f48b9e45a4c21}\label{structnode_a489c42451796f699503f48b9e45a4c21}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!node@{node}}
+\index{node@{node}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{node()}{node()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::\mbox{\hyperlink{structnode}{node}} (\begin{DoxyParamCaption}\item[{const T \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+Custom constructor without input parent node$\ast$ \mbox{\Hypertarget{structnode_aec9a9ffda148a83afbbda14f471d0fbc}\label{structnode_aec9a9ffda148a83afbbda14f471d0fbc}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!node@{node}}
+\index{node@{node}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{node()}{node()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::\mbox{\hyperlink{structnode}{node}} (\begin{DoxyParamCaption}\item[{const T \&}]{input,  }\item[{\mbox{\hyperlink{structnode}{node}}$<$ T $>$ $\ast$}]{input\+\_\+pointer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Custom constructor with input parent node$\ast$ \mbox{\Hypertarget{structnode_ab6d4417562cd9d19afb89ddcf0107b73}\label{structnode_ab6d4417562cd9d19afb89ddcf0107b73}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!node@{node}}
+\index{node@{node}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{node()}{node()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::\mbox{\hyperlink{structnode}{node}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structnode}{node}}$<$ T $>$ \&}]{node\+\_\+to\+\_\+copy,  }\item[{\mbox{\hyperlink{structnode}{node}}$<$ T $>$ $\ast$}]{new\+\_\+parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy custom constructor. It creates a new node with the attribute of the starting node, but with the parent equal to a input pointer. The process is then iterated for all of its children, such that at the end, a deep copy of its subtree is performed 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structnode_ad789e1c037633ce25cf7a1cd851b4997}\label{structnode_ad789e1c037633ce25cf7a1cd851b4997}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!attr@{attr}}
+\index{attr@{attr}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{attr}{attr}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::attr}
+
+Attribute of the node (which can be of any type including a pair) \mbox{\Hypertarget{structnode_aa656fa405e35371dbe1f15bfe2729e18}\label{structnode_aa656fa405e35371dbe1f15bfe2729e18}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!parent@{parent}}
+\index{parent@{parent}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{structnode}{node}}$\ast$ \mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::parent}
+
+Raw pointer to parent \mbox{\Hypertarget{structnode_ae625e7985cf0d512ea40eb5d1ed53bd1}\label{structnode_ae625e7985cf0d512ea40eb5d1ed53bd1}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!right@{right}}
+\index{right@{right}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{right}{right}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{structnode}{node}}$>$ \mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::right}
+
+Unique pointers to children 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/node.\+hpp\end{DoxyCompactItemize}

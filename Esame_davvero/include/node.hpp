@@ -1,12 +1,12 @@
-/*
-Author: Rodolfo Tolloi, Giulia Bernardi.
-
-Purpouse: create a custom class named node which 
-implements a node for a binary search tree (BST). 
-Each node has two unique pointers, named right and
-left, and can have only one father's node.
-
-Date: May, 2021.
+/**
+*Author: Rodolfo Tolloi, Giulia Bernardi.
+*
+*Purpouse: create a custom class named node which 
+*implements a node for a binary search tree (BST). 
+*Each node has two unique pointers, named right and
+*left, and can have only one father's node.
+*
+*Date: May, 2021.
 */
 
 #include<utility>
@@ -16,37 +16,40 @@ Date: May, 2021.
 template <typename T>
 struct node {
 
-    /*Attribute of the node (which can be of any type
-    including a pair)*/
+    /**Attribute of the node (which can be of any type
+    *including a pair)
+    */
     T attr;
 
-    /*Pointers to children*/ 
+    /**Unique pointers to children*/ 
     std::unique_ptr<node> right;
     std::unique_ptr<node> left;
 
-    /*Raw pointer to parent*/
+    /**Raw pointer to parent*/
     node* parent;
 
-    /*Constructor default*/
+    /**Default constructor*/
     node() = default;
-    /*Destructor*/
+    /**Default destructor*/
     ~node () = default;
     
-    /*Custom constructor without parent node*/
+    /**Custom constructor without input parent node* */
     explicit node(const T& input) noexcept :
     attr{input},
     right{nullptr},
     left{nullptr},
     parent{nullptr} {} 
 
-    /*Custom constructor with parent node* from input*/
+    /**Custom constructor with input parent node* */
     node(const T& input, node* input_pointer) noexcept:
     attr{input},
     right{nullptr},
     left{nullptr},
     parent{input_pointer} {}
 
-    /*copy ctor (it copies starting node and all of his children, but no parent)*/
+    /**Copy custom constructor. It creates a new node with the attribute of the starting node,
+    * but with the parent equal to a input pointer. The process is then iterated for all of its
+    * children, such that at the end, a deep copy of its subtree is performed */
     node(const node& node_to_copy, node* new_parent):
     attr{node_to_copy.attr},
     right{nullptr},
@@ -62,19 +65,20 @@ struct node {
 
 
     /*Functions: */
-    /*This function create a left child of a node of our choice*/
+
+    /**This function create a left child for a input node*/
     void create_left_child(T child_attr) {
         left = std::make_unique<node>(std::forward<T>(child_attr), this);
     }
-    /*This function create a right child of a node of our choice*/
+    /**This function create a right child for a input node*/
     void create_right_child(T child_attr) {
         right = std::make_unique<node>(std::forward<T>(child_attr), this); 
     }
 
     friend
-    /*custom overloading of the put to operator for the nodes. This function
-    was created with a debugging purpouse, and can be used only if the attr
-    of the nodes is of type pair.*/
+    /**Custom overloading of the put to operator for the node struct. This function
+    * was created with a debugging purpouse, and can be used only if the attr
+    * of the nodes is of type pair.*/
     std::ostream& operator<<(std::ostream& os, const node& x) {
         
         os << "Key " << x.attr.first << "\n";
