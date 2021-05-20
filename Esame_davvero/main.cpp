@@ -6,9 +6,9 @@ Purpouse:   VA SCRITTO !!!!!!!!!!!!!!!11.
 Date: May, 2021.
 */
 
-#include"node.hpp"
-#include"iterator.hpp"
-#include"bst.hpp"
+#include"include/node.hpp"
+#include"include/iterator.hpp"
+#include"include/bst.hpp"
 #include<iostream>
 #include <functional>
 #include <utility>
