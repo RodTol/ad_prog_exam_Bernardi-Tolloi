@@ -1,0 +1,313 @@
+\hypertarget{classbst}{}\doxysection{bst$<$ key\+\_\+type, value\+\_\+type, OP $>$ Class Template Reference}
+\label{classbst}\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+
+
+{\ttfamily \#include $<$bst.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbst_a1ba2723ef9d9c08073bd2fcb91ad5d52}{bst}} ()=default
+\item 
+\mbox{\hyperlink{classbst_a16749f7d69c12e6bf94a41a96cdfbcc4}{$\sim$bst}} ()=default
+\item 
+\mbox{\hyperlink{classbst_a6f31521b77882d5b84bea8cc7be14d2b}{bst}} (attr\+\_\+type starting\+\_\+attr) noexcept
+\item 
+\mbox{\hyperlink{classbst_ab8906a1dacad0796fb1e50a22bf8d728}{bst}} (const \mbox{\hyperlink{classbst}{bst}} \&tree\+\_\+to\+\_\+copy)
+\item 
+\mbox{\hyperlink{classbst}{bst}} \& \mbox{\hyperlink{classbst_a705b03435d0b5ce26fed2d6296cdfd30}{operator=}} (const \mbox{\hyperlink{classbst}{bst}} \&tree\+\_\+to\+\_\+copy)
+\item 
+\mbox{\hyperlink{classbst_a262f7f3c644646495f31b9d960953f9d}{bst}} (\mbox{\hyperlink{classbst}{bst}} \&\&tree\+\_\+to\+\_\+copy)
+\item 
+\mbox{\hyperlink{classbst}{bst}} \& \mbox{\hyperlink{classbst_a570acf5ff851245509787b98c6a088e8}{operator=}} (\mbox{\hyperlink{classbst}{bst}} \&\&tree\+\_\+to\+\_\+copy)
+\item 
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst_a68c4bccff1bbb655aceab7eb4a1bdce6}{begin}} () noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_ae46573bbd88ab58ada60918a89547cd4}{begin}} () const noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_a2b4fb338300a01aa44b5314bf42a9f7a}{cbegin}} () const noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst_af4499987393d029835b0a888808d4857}{tail}} () noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_aa543a69847d308ab201590c9e3a7108e}{tail}} () const noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_a0a181d94256736e8c64d17e5542d2313}{ctail}} () const noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst_aa6ce6fbe3c3fe23fbbe7fb1b15587a61}{end}} () noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_afb9553c9a0db32dffaf4a08a75901cf3}{end}} () const noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_a4a899c6c53d3f500622be93c8a43f874}{cend}} () const noexcept
+\item 
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst_a6f641935e5e7681a57caedc2760d6ec8}{find}} (const key\+\_\+type \&x)
+\item 
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst_a2a6376acbafc21936af61b7a55f52073}{find}} (const key\+\_\+type \&x) const
+\item 
+std\+::pair$<$ \mbox{\hyperlink{struct__iterator}{iterator}}, bool $>$ \mbox{\hyperlink{classbst_aaba320a5c0ba3667edff6e2b70651cc3}{insert}} (const attr\+\_\+type \&x)
+\item 
+std\+::pair$<$ \mbox{\hyperlink{struct__iterator}{iterator}}, bool $>$ \mbox{\hyperlink{classbst_a204c871743b5cc278da1414fac52c9eb}{insert}} (attr\+\_\+type \&\&x)
+\item 
+{\footnotesize template$<$class... Types$>$ }\\std\+::pair$<$ \mbox{\hyperlink{struct__iterator}{iterator}}, bool $>$ \mbox{\hyperlink{classbst_ac411e2594cb65ecdeae5e95451a63b57}{emplace}} (Types \&\&... args)
+\item 
+value\+\_\+type \& \mbox{\hyperlink{classbst_a9cad294400509550f2390471e7063cbf}{operator\mbox{[}$\,$\mbox{]}}} (const key\+\_\+type \&x)
+\item 
+value\+\_\+type \& \mbox{\hyperlink{classbst_a5d15cc71b1cbb1f758f574d6455d3afb}{operator\mbox{[}$\,$\mbox{]}}} (key\+\_\+type \&\&x)
+\item 
+void \mbox{\hyperlink{classbst_a1b490d1bcf24de6e973772d482883239}{clear}} ()
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classbst_ae5d8e241afdd789f6fc4f4895fd3c28f}{size}} ()
+\item 
+void \mbox{\hyperlink{classbst_a616594a73f55c43f4eb8b9c661b84695}{balance}} ()
+\item 
+void \mbox{\hyperlink{classbst_a811b688d9f0214ebfe42ec78178c4f37}{balance}} (std\+::vector$<$ attr\+\_\+type $>$ \&tmp, std\+::size\+\_\+t left, std\+::size\+\_\+t right) noexcept
+\item 
+\mbox{\hyperlink{structnode}{node}}$<$ attr\+\_\+type $>$ $\ast$ \mbox{\hyperlink{classbst_ac40bdf0304375dde85c60bbc5e7bcb59}{min\+\_\+sub}} (\mbox{\hyperlink{structnode}{node}}$<$ attr\+\_\+type $>$ $\ast$start)
+\item 
+void \mbox{\hyperlink{classbst_a2c6e04b1567158f477d0489700c5bf50}{erase}} (const key\+\_\+type \&x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbst_a8629b96d895ff3e69fc15f3e2682a841}\label{classbst_a8629b96d895ff3e69fc15f3e2682a841}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structnode}{node}}$<$ attr\+\_\+type $>$ $>$ {\bfseries head}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classbst_a9d3bddf1057758177152348838e076eb}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classbst}{bst}} \&x) noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename key\+\_\+type, typename value\+\_\+type, typename OP = std\+::less$<$key\+\_\+type$>$$>$\newline
+class bst$<$ key\+\_\+type, value\+\_\+type, O\+P $>$}
+
+Author\+: Rodolfo Tolloi, Giulia Bernardi.
+
+Purpouse\+: create a custom class that represents a binary search tree (bst). This is done by defining a compare operator and a head. The first is the relation that will decide where a new node will insert, while the second is a unique pointer to the first node of the tree.
+
+Date\+: May, 2021. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbst_a1ba2723ef9d9c08073bd2fcb91ad5d52}\label{classbst_a1ba2723ef9d9c08073bd2fcb91ad5d52}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!bst@{bst}}
+\index{bst@{bst}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{bst()}{bst()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::\mbox{\hyperlink{classbst}{bst}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default constructor \mbox{\Hypertarget{classbst_a16749f7d69c12e6bf94a41a96cdfbcc4}\label{classbst_a16749f7d69c12e6bf94a41a96cdfbcc4}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!````~bst@{$\sim$bst}}
+\index{````~bst@{$\sim$bst}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$bst()}{~bst()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::$\sim$\mbox{\hyperlink{classbst}{bst}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Default destructor \mbox{\Hypertarget{classbst_a6f31521b77882d5b84bea8cc7be14d2b}\label{classbst_a6f31521b77882d5b84bea8cc7be14d2b}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!bst@{bst}}
+\index{bst@{bst}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{bst()}{bst()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::\mbox{\hyperlink{classbst}{bst}} (\begin{DoxyParamCaption}\item[{attr\+\_\+type}]{starting\+\_\+attr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+Custom constructor, who take a attribute and create a node which will be the first of a bst. \mbox{\Hypertarget{classbst_ab8906a1dacad0796fb1e50a22bf8d728}\label{classbst_ab8906a1dacad0796fb1e50a22bf8d728}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!bst@{bst}}
+\index{bst@{bst}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{bst()}{bst()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::\mbox{\hyperlink{classbst}{bst}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$ \&}]{tree\+\_\+to\+\_\+copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Copy constructor \mbox{\Hypertarget{classbst_a262f7f3c644646495f31b9d960953f9d}\label{classbst_a262f7f3c644646495f31b9d960953f9d}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!bst@{bst}}
+\index{bst@{bst}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{bst()}{bst()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::\mbox{\hyperlink{classbst}{bst}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$ \&\&}]{tree\+\_\+to\+\_\+copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Move constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbst_a616594a73f55c43f4eb8b9c661b84695}\label{classbst_a616594a73f55c43f4eb8b9c661b84695}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!balance@{balance}}
+\index{balance@{balance}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{balance()}{balance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+void \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+balance\+: function that will balance the tree, rewriting it with roughly half of the nodes on the left and the other half on the right. This first overloading create a orderd vector \char`\"{}tmp\char`\"{} by taking the attributes of the nodes in the traversal order. After that it will call the clear function, erasing the content of the tree. In the end it will call the second overloding which will create the ordered tree. \mbox{\Hypertarget{classbst_a811b688d9f0214ebfe42ec78178c4f37}\label{classbst_a811b688d9f0214ebfe42ec78178c4f37}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!balance@{balance}}
+\index{balance@{balance}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{balance()}{balance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+void \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::balance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ attr\+\_\+type $>$ \&}]{tmp,  }\item[{std\+::size\+\_\+t}]{left,  }\item[{std\+::size\+\_\+t}]{right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+balance\+: this second overloading of the balance function will take a input vector of attributes and use the insert function to create the nodes such that the tree will be balanced. To achieve so, it will start by inserting the node in the middle of the vector (or the roundown value if the size of the vector is odd). Than it will repeat the same process for one half of the vector, inserting an another node, and by iterating this process it will create the balanced tree. \mbox{\Hypertarget{classbst_ae46573bbd88ab58ada60918a89547cd4}\label{classbst_ae46573bbd88ab58ada60918a89547cd4}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!begin@{begin}}
+\index{begin@{begin}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Begin\+: this function will return a const iterator to the leftmost node of the const tree. \mbox{\Hypertarget{classbst_a68c4bccff1bbb655aceab7eb4a1bdce6}\label{classbst_a68c4bccff1bbb655aceab7eb4a1bdce6}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!begin@{begin}}
+\index{begin@{begin}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Begin\+: this function will return an iterator to the leftmost node of the non-\/const tree. \mbox{\Hypertarget{classbst_a2b4fb338300a01aa44b5314bf42a9f7a}\label{classbst_a2b4fb338300a01aa44b5314bf42a9f7a}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Cbegin\+: it will always return a const\+\_\+iterator to the leftmost node of the tree. \mbox{\Hypertarget{classbst_a4a899c6c53d3f500622be93c8a43f874}\label{classbst_a4a899c6c53d3f500622be93c8a43f874}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!cend@{cend}}
+\index{cend@{cend}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+cend\+: it will return a const\+\_\+iterator to one-\/past the last element, both for const and non-\/const tree. \mbox{\Hypertarget{classbst_a1b490d1bcf24de6e973772d482883239}\label{classbst_a1b490d1bcf24de6e973772d482883239}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!clear@{clear}}
+\index{clear@{clear}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+void \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+clear\+: this function clear the content of the tree by resetting the head pointer to nullptr \mbox{\Hypertarget{classbst_a0a181d94256736e8c64d17e5542d2313}\label{classbst_a0a181d94256736e8c64d17e5542d2313}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!ctail@{ctail}}
+\index{ctail@{ctail}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{ctail()}{ctail()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::ctail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+ctail\+: it will return a const\+\_\+iterator to the rightmost node of the tree, both for const and non-\/const tree. \mbox{\Hypertarget{classbst_ac411e2594cb65ecdeae5e95451a63b57}\label{classbst_ac411e2594cb65ecdeae5e95451a63b57}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!emplace@{emplace}}
+\index{emplace@{emplace}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{emplace()}{emplace()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+template$<$class... Types$>$ \\
+std\+::pair$<$\mbox{\hyperlink{struct__iterator}{iterator}},bool$>$ \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::emplace (\begin{DoxyParamCaption}\item[{Types \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Emplace\+: this function tries to create one or more element if there is no element with the same key. \mbox{\Hypertarget{classbst_afb9553c9a0db32dffaf4a08a75901cf3}\label{classbst_afb9553c9a0db32dffaf4a08a75901cf3}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!end@{end}}
+\index{end@{end}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+End\+: it will return a const iterator to one-\/past the last element of the const tree. \mbox{\Hypertarget{classbst_aa6ce6fbe3c3fe23fbbe7fb1b15587a61}\label{classbst_aa6ce6fbe3c3fe23fbbe7fb1b15587a61}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!end@{end}}
+\index{end@{end}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+End\+: it will return an iterator to one-\/past the last element of the tree. \mbox{\Hypertarget{classbst_a2c6e04b1567158f477d0489700c5bf50}\label{classbst_a2c6e04b1567158f477d0489700c5bf50}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!erase@{erase}}
+\index{erase@{erase}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+void \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::erase (\begin{DoxyParamCaption}\item[{const key\+\_\+type \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+erase\+: this function purpouse is to remove a node with key equal to the the input (if it exist). The first step is to check if this node exist. There are 3 case\+: the node has no child, has one child (left or right) and has both child. For the first case the function simply remove the node by resetting the father\textquotesingle{}s pointer and the objective node\textquotesingle{}s parent pointer. For the second case it will also connect the father node to the children, preserving the structure of the tree. The last case is solved by moving the left subtree of the objective node to the leftmost element of the right subtree of the objective node. Thanks to this operation, the node will have only a right child, and so the problem can be solved as explained above. \mbox{\Hypertarget{classbst_a6f641935e5e7681a57caedc2760d6ec8}\label{classbst_a6f641935e5e7681a57caedc2760d6ec8}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!find@{find}}
+\index{find@{find}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::find (\begin{DoxyParamCaption}\item[{const key\+\_\+type \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find\+: search a node with key equal to the input, and if it succed return a iterator to the node, otherwise, it will return a iterator to nullptr. \mbox{\Hypertarget{classbst_a2a6376acbafc21936af61b7a55f52073}\label{classbst_a2a6376acbafc21936af61b7a55f52073}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!find@{find}}
+\index{find@{find}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::find (\begin{DoxyParamCaption}\item[{const key\+\_\+type \&}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find\+: search a node with key equal to the input, and if it succed return a const\+\_\+iterator to the node, otherwise, it will return a const\+\_\+iterator to nullptr. \mbox{\Hypertarget{classbst_a204c871743b5cc278da1414fac52c9eb}\label{classbst_a204c871743b5cc278da1414fac52c9eb}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!insert@{insert}}
+\index{insert@{insert}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+std\+::pair$<$\mbox{\hyperlink{struct__iterator}{iterator}}, bool$>$ \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::insert (\begin{DoxyParamCaption}\item[{attr\+\_\+type \&\&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Insert\+: this function tries to create a node with the attribute equal to the input x. It return a pair made by a boolean and a iterator. The boolean is false if the node with key = x already exist, true if the node must be created. The iterator point to the node both if it was just created or it was already there. This formulation is for r-\/values \mbox{\Hypertarget{classbst_aaba320a5c0ba3667edff6e2b70651cc3}\label{classbst_aaba320a5c0ba3667edff6e2b70651cc3}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!insert@{insert}}
+\index{insert@{insert}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+std\+::pair$<$\mbox{\hyperlink{struct__iterator}{iterator}}, bool$>$ \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::insert (\begin{DoxyParamCaption}\item[{const attr\+\_\+type \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Insert\+: this function tries to create a node with the key equal to the input x. It return a pair made by a boolean and a iterator. The boolean is false if the node with key = x already exist, true if the node must be created. The iterator point to the node both if it was just created or it was already there. This formulation is for l-\/values \mbox{\Hypertarget{classbst_ac40bdf0304375dde85c60bbc5e7bcb59}\label{classbst_ac40bdf0304375dde85c60bbc5e7bcb59}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!min\_sub@{min\_sub}}
+\index{min\_sub@{min\_sub}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{min\_sub()}{min\_sub()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{structnode}{node}}$<$attr\+\_\+type$>$$\ast$ \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::min\+\_\+sub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}}$<$ attr\+\_\+type $>$ $\ast$}]{start }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+min\+\_\+sub\+: this function return a pointer to the leftmost node of the subtree of a input node. \mbox{\Hypertarget{classbst_a570acf5ff851245509787b98c6a088e8}\label{classbst_a570acf5ff851245509787b98c6a088e8}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}\& \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$ \&\&}]{tree\+\_\+to\+\_\+copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Move assignement \mbox{\Hypertarget{classbst_a705b03435d0b5ce26fed2d6296cdfd30}\label{classbst_a705b03435d0b5ce26fed2d6296cdfd30}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{classbst}{bst}}\& \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$ \&}]{tree\+\_\+to\+\_\+copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy assignement \mbox{\Hypertarget{classbst_a9cad294400509550f2390471e7063cbf}\label{classbst_a9cad294400509550f2390471e7063cbf}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+value\+\_\+type\& \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const key\+\_\+type \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+subscripting operator\+: this function returns a reference to the value of the node with the key equal to the input x, performing a insertion if that key does not already exist. This formulation is for l-\/value \mbox{\Hypertarget{classbst_a5d15cc71b1cbb1f758f574d6455d3afb}\label{classbst_a5d15cc71b1cbb1f758f574d6455d3afb}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+value\+\_\+type\& \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{key\+\_\+type \&\&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+subscripting operator\+: this function returns a reference to the value of the node with the key equal to the input x, performing a insertion if that key does not already exist. This formulation is for r-\/value \mbox{\Hypertarget{classbst_ae5d8e241afdd789f6fc4f4895fd3c28f}\label{classbst_ae5d8e241afdd789f6fc4f4895fd3c28f}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!size@{size}}
+\index{size@{size}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+std\+::size\+\_\+t \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+size\+: function that returns the number of nodes inside the tree \mbox{\Hypertarget{classbst_aa543a69847d308ab201590c9e3a7108e}\label{classbst_aa543a69847d308ab201590c9e3a7108e}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!tail@{tail}}
+\index{tail@{tail}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{tail()}{tail()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{const\+\_\+iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Tail\+: it will return a const\+\_\+iterator to the rightmost node of the const tree. \mbox{\Hypertarget{classbst_af4499987393d029835b0a888808d4857}\label{classbst_af4499987393d029835b0a888808d4857}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!tail@{tail}}
+\index{tail@{tail}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{tail()}{tail()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+\mbox{\hyperlink{struct__iterator}{iterator}} \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Tail\+: it will return a iterator to the rightmost node of the non const tree. 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classbst_a9d3bddf1057758177152348838e076eb}\label{classbst_a9d3bddf1057758177152348838e076eb}} 
+\index{bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!bst$<$ key\_type, value\_type, OP $>$@{bst$<$ key\_type, value\_type, OP $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename key\+\_\+type , typename value\+\_\+type , typename OP  = std\+::less$<$key\+\_\+type$>$$>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classbst}{bst}}$<$ key\+\_\+type, value\+\_\+type, OP $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+put-\/to\+: custom overloading of put-\/to operator that will print the tree following the traversal. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/bst.\+hpp\end{DoxyCompactItemize}
