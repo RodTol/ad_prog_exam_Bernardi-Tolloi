@@ -257,49 +257,89 @@ public:
         return const_iterator(curr);
     }
 
-    /*end*/
+    /** End:
+     * it will return an iterator to one-past the last
+     * element of the tree.
+    */
     iterator end() noexcept{
         return iterator (nullptr);
     }
 
-    /*end*/
+    /** End:
+     * it will return a const iterator to one-past the last
+     * element of the const tree.
+    */
     const_iterator end() const noexcept{
         return const_iterator (nullptr);
     }
 
-    /*cend*/
+    /** cend:
+     * it will return a const_iterator to one-past the
+     * last element, both for const and non-const tree.
+    */
     const_iterator cend() const noexcept{
         return const_iterator (nullptr);
     }
 
-    /*find*/
+    /**Find:
+     * search a node with key equal to the input, and if
+     * it succed return a iterator to the node, otherwise,
+     * it will return a iterator to nullptr.
+    */
     iterator find(const key_type& x) {
         return iterator{_find(x)};
     }
 
-    /*find with const_iterator*/
+    /** Find:
+     * search a node with key equal to the input, and if
+     * it succed return a const_iterator to the node, otherwise,
+     * it will return a const_iterator to nullptr.
+     */
     const_iterator find(const key_type& x) const {
         return const_iterator{_find(x)};
     }
 
-    /*insert l-value*/
+    /** Insert:
+     * this function tries to create a node with the key 
+     * equal to the input x. It return a pair made by a 
+     * boolean and a iterator. The boolean is false if 
+     * the node with key = x already exist, true if the
+     * node must be created. The iterator point to the node
+     * both if it was just created or it was already there.
+     * This formulation is for l-values
+    */
     std::pair<iterator, bool> insert(const attr_type& x){
         return _insert(x);
     }
-
-    /*insert r-value*/
+    /** Insert:
+     * this function tries to create a node with the attribute
+     * equal to the input x. It return a pair made by a 
+     * boolean and a iterator. The boolean is false if 
+     * the node with key = x already exist, true if the
+     * node must be created. The iterator point to the node
+     * both if it was just created or it was already there.
+     * This formulation is for r-values
+    */
     std::pair<iterator, bool> insert(attr_type&& x){
         return _insert(std::move(x));
     }
 
-    /*emplace*/
+    /**Emplace:
+     * this function tries to create one or more element 
+     * if there is no element with the same key.
+    */
     template< class... Types >
     std::pair<iterator,bool> emplace(Types&&... args){
         return insert(attr_type(std::forward<Types>(args)...));
     }
 
 
-    /*subscripting operator for l-value*/
+    /**subscripting operator:
+     * this function returns a reference to the value of
+     * the node with the key equal to the input x,
+     * performing a insertion if that key does not already
+     * exist. This formulation is for l-value
+     */
     value_type& operator[](const key_type& x){
         auto f=_find(x);
         if(f)
@@ -310,7 +350,12 @@ public:
         return (*f2).attr.second;
      }
 
-    /*subscripting operator for r-value*/
+    /**subscripting operator:
+     * this function returns a reference to the value of
+     * the node with the key equal to the input x,
+     * performing a insertion if that key does not already
+     * exist. This formulation is for r-value
+     */
     value_type& operator[](key_type&& x){
         auto f=_find(std::move(x));
         if(f)
@@ -321,12 +366,18 @@ public:
         return (*f2).attr.second;
      }
     
-    /*clear function*/
+    /**clear:
+     * this function clear the content of the tree by resetting
+     * the head pointer to nullptr
+     */
     void clear() {
         head.reset(nullptr);
     }
 
-    /*put to*/
+    /** put-to:
+     * custom overloading of put-to operator that will 
+     * print the tree following the traversal.
+    */
     friend
     std::ostream& operator<<(std::ostream& os, const bst& x) noexcept {
         for ( const auto& i : x)
@@ -336,7 +387,10 @@ public:
     return os;
     }
 
-    /*size*/
+    /**size:
+     * function that returns the number of nodes inside
+     * the tree
+    */
     std::size_t size() {
         std::size_t _size{0};
         for ( auto i = cbegin(); i != cend(); ++i)
@@ -347,8 +401,16 @@ public:
         return _size;
     }
 
-    /*balance*/
-    /*speigalo bene dio madonna*/
+    /**balance:
+     * function that will balance the tree, rewriting it
+     * with roughly half of the nodes on the left and
+     * the other half on the right. This first overloading
+     * create a orderd vector "tmp" by taking the attributes of
+     * the nodes in the traversal order. After that it will
+     * call the clear function, erasing the content of the 
+     * tree. In the end it will call the second overloding
+     * which will create the ordered tree.
+    */
     void balance() {
 
         if (!head) {
@@ -366,20 +428,30 @@ public:
         balance(tmp, 0, tmp.size());
     }
 
-
-
-    /*side function for the balance function*/
+    /**balance:
+     * this second overloading of the balance function will
+     * take a input vector of attributes and use the insert 
+     * function to create the nodes such that the tree will be
+     * balanced. To achieve so, it will start by inserting the
+     * node in the middle of the vector (or the roundown value
+     * if the size of the vector is odd). Than it will
+     * repeat the same process for one half of the vector,
+     * inserting an another node, and by iterating this process
+     * it will create the balanced tree.
+    */
     void balance(std::vector<attr_type>& tmp, std::size_t left, std::size_t right) noexcept {
     if ( right - left < 1)
         return;
     auto half = ((left + right ) / 2);
     insert(tmp[half]);
-    //std::cout << "From function balance:\n" << tmp[half].first << std::endl;
     balance(tmp, left, half);
     balance(tmp, half + 1, right);
     }
 
-    /*find min of the a subtree*/
+    /**min_sub:
+     * this function return a pointer to the leftmost node
+     * of the subtree of a input node.
+    */
     node<attr_type>* min_sub (node<attr_type>* start) {
         while(start -> left) {
             start = start -> left.get();
@@ -387,9 +459,22 @@ public:
         return start;
     }    
 
-    /*erase*/
-    /*speiga come funziona con il fatto che prendi il min del subtree di 
-    dx e lo metti come nuovo nodo*/
+    /**erase:
+     * this function purpouse is to remove a node with key 
+     * equal to the the input (if it exist). The first step is
+     * to check if this node exist. There are 3 case: the node
+     * has no child, has one child (left or right) and has 
+     * both child. For the first case the function simply remove
+     * the node by resetting the father's pointer and the 
+     * objective node's parent pointer. For the second case 
+     * it will also connect the father node to the children,
+     * preserving the structure of the tree. The last case is
+     * solved by moving the left subtree of the objective node
+     * to the leftmost element of the right subtree of the
+     * objective node. Thanks to this operation, the node will
+     * have only a right child, and so the problem can be solved
+     * as explained above. 
+     */ 
     void erase(const key_type& x) {
         if (!_find(x))
         {
@@ -468,10 +553,6 @@ public:
                 /*i move the left subtree of _find(x)* to the left of the
                 leftomost of his right subtree. So, i am again in one of 
                 the case above*/
-
-                /*NOTA: il leftmost di un tree non ha per forza un left,
-                altrimenti non sarebbe tale*/
-
                 node<attr_type>* min_of_subtree {min_sub(_find(x)->right.get())};
                 _find(x)->left->parent = min_of_subtree;
                 min_of_subtree->left = std::move(_find(x)->left);
