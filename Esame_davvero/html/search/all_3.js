@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['node_4',['node',['../structnode.html',1,'node&lt; T &gt;'],['../structnode.html#a444df3103a443654823ca9b4380451a8',1,'node::node()=default'],['../structnode.html#a489c42451796f699503f48b9e45a4c21',1,'node::node(const T &amp;input) noexcept'],['../structnode.html#aec9a9ffda148a83afbbda14f471d0fbc',1,'node::node(const T &amp;input, node *input_pointer) noexcept'],['../structnode.html#ab6d4417562cd9d19afb89ddcf0107b73',1,'node::node(const node &amp;node_to_copy, node *new_parent)']]]
+  ['cbegin_5',['cbegin',['../classbst.html#a2b4fb338300a01aa44b5314bf42a9f7a',1,'bst']]],
+  ['create_5fleft_5fchild_6',['create_left_child',['../structnode.html#a58e8882d88db368a156818a0262356c7',1,'node']]],
+  ['create_5fright_5fchild_7',['create_right_child',['../structnode.html#a58b501707cebb07ba19832887a1e273a',1,'node']]],
+  ['ctail_8',['ctail',['../classbst.html#a0a181d94256736e8c64d17e5542d2313',1,'bst']]]
 ];

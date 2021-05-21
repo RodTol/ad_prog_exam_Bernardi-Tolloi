@@ -1,9 +1,14 @@
-/*
-Author: Rodolfo Tolloi, Giulia Bernardi.
-
-Purpouse:   VA SCRITTO !!!!!!!!!!!!!!!11.
-
-Date: May, 2021.
+/**
+* Author: Rodolfo Tolloi, Giulia Bernardi.
+*
+* Purpouse: create a custom class that represents a
+* binary search tree (bst). This is done by defining a
+* compare operator and a head. The first is the relation 
+* that will decide where a new node will insert, while
+* the second is a unique pointer to the first node of 
+* the tree. 
+*
+* Date: May, 2021.
 */
 
 #include <functional>
@@ -13,23 +18,24 @@ Date: May, 2021.
 template <typename key_type, typename value_type, typename OP=std::less<key_type> >
 class bst
 {
-    /*template for the argument of each node*/
     using attr_type = std::pair<const key_type, value_type>;
-    /*template for a argument with const value type for each node*/
     using const_attr_type = const std::pair< const key_type, value_type>;
-    /*template for the _iterator class*/
     using iterator = _iterator< node<attr_type>, attr_type>;
-    /*template for the _iterator class with constant arguments of the nodes*/
     using const_iterator = _iterator<node<attr_type>, const_attr_type>;
 
-    /*members of bst class*/
+    /**Compare operator*/
     OP compare_operator;
 
-    /*Find utility function to return a pointer instead of an iterator. This
-    feature is very useful in other statements. This function has a const
-    keyword at the end beacuse it will not modify the tree which is called upon*/
-
-    //SPIEGA COME FUNZIONA
+    /** Find utility function:
+     * this function return a pointer instead of an iterator and
+     * this feature is very useful in other statements.
+     * It works by taking the key and comparing it with each node.
+     * If it is equal, obviously the pointer to the node is returned.
+     * If it is greater or less than the key contained in the node,
+     * the pointer will move following the ight or left pointer 
+     * of the first node. In this way the search is speeded up,
+     * removing automaticcaly the nodes that cannot for sure have
+     * equal key */
     node<attr_type>* _find(const key_type& x) const {
 
         if (!head) {
@@ -57,10 +63,16 @@ class bst
         return nullptr;
     }
 
-    /* Insert utility function
-    This function is used for both insert and emplace.
-    
-     SCRIVI COME FUNZIA*/
+    /** Insert utility function
+    * This function is used for both insert and emplace. It
+    * will return an iterator to the new node if created, or
+    * to the node with equal key if it already exist.
+    * Firstly it removes the equal case by calling the _find()
+    * function. If it doesn't find it, it will look for the 
+    * place to create the new node, moving to the right or to
+    * the left. The search will stop when it find a nullptr and then
+    * to create the new node it will be performed a call to
+    * create_left_child or create_right_child, depending by the case*/
     template <typename O>
     std::pair< iterator, bool> _insert(O&& x)
     {
@@ -72,7 +84,6 @@ class bst
         else {
             node<attr_type>* curr = head.get();
             while (curr) {
-                /*se sono minore e esiste il figlio sx mi sposto a sx*/
                 if ( compare_operator(x.first, curr->attr.first) ) {
                     
                     if (curr->left.get()) {
@@ -81,11 +92,9 @@ class bst
 
                     else {
                         (*curr).create_left_child(x);
-                        //std::cout << "Inserted left child\n";
                         return std::make_pair ( iterator{curr->left.get()} , true);
                     }
                 }
-                /*se non sono minore, sono per return  std::make_pair (iterator{found} , false);*/
                 else {
 
                     if (curr->right.get()) {
@@ -93,14 +102,12 @@ class bst
                     }
                     else {
                         (*curr).create_right_child(x);
-                        //std::cout << "Inserted right child\n";
                         return std::make_pair ( iterator{curr->right.get()} , true);
                     }
                 }
             }
 
             head = std::make_unique<node<attr_type>>(std::forward<O>(x),nullptr);
-            //std::cout << "Inserted as head" << std::endl;
             return std::make_pair (iterator{head.get()} , true); 
         }
     }
@@ -109,20 +116,22 @@ public:
 
     std::unique_ptr<node<attr_type>> head;
 
-    /*default constr e destr*/
+    /**Default constructor*/
     bst() = default;
+    /**Default destructor*/
     ~bst() = default;
 
-    /*custom constr with starting node*/
+    /**Custom constructor, who take a attribute and create a node
+     * which will be the first of a bst.*/
     explicit bst (attr_type starting_attr) noexcept:
     head {std::make_unique<node <attr_type> >(std::forward<attr_type>(starting_attr), nullptr)} {}
 
-    /*copy ctor*/
+    /**Copy constructor*/
     explicit bst(const bst& tree_to_copy):
     compare_operator {tree_to_copy.compare_operator},
     head {std::make_unique<node <attr_type> >(*tree_to_copy.head.get(), nullptr)} {}
 
-    /*copy assignement*/
+    /**Copy assignement*/
     bst& operator=(const bst& tree_to_copy) {
         if (this!=&tree_to_copy)
         {
@@ -132,12 +141,12 @@ public:
         return *this;
     }   
 
-    /*move ctor*/
+    /**Move constructor*/
     explicit bst(bst&& tree_to_copy):
     compare_operator {std::move(tree_to_copy.compare_operator)},
     head {std::move(tree_to_copy.head)} {}
 
-    /*move assignement*/
+    /**Move assignement*/
     bst& operator=(bst&& tree_to_copy) {
         if (this!=&tree_to_copy)
         {
@@ -147,7 +156,10 @@ public:
        return *this;
     }
 
-    /*begin*/
+    /**Begin:
+     * this function will return an iterator to the leftmost node
+     * of the non-const tree.
+    */
     iterator begin() noexcept {
         if (!head) {
             std::cout << "The tree is empty" << std::endl;
@@ -160,7 +172,10 @@ public:
         return iterator(curr);
     }
     
-    /*begin called for a const object*/
+    /**Begin:
+     * this function will return a const iterator to the
+     * leftmost node of the const tree.
+     */
     const_iterator begin() const noexcept {
         if (!head) {
             std::cout << "The tree is empty" << std::endl;
@@ -173,7 +188,9 @@ public:
         return const_iterator(curr);
     }
 
-    /*cbegin called for a  object. It will always return a const_iterator*/
+    /** Cbegin:
+     *  it will always return a const_iterator to the leftmost
+     *  node of the tree.*/
     const_iterator cbegin() const noexcept {
         if (!head) {
             std::cout << "The tree is empty" << std::endl;
@@ -186,7 +203,10 @@ public:
         return const_iterator(curr);
     }
 
-    /*tail*/
+    /** Tail:
+     * it will return a iterator to the rightmost node of the
+     * non const tree.
+    */
     iterator tail() noexcept{
             if (!head)
             {
@@ -201,7 +221,10 @@ public:
         return iterator(curr);
     }
 
-    /*tail*/
+    /** Tail:
+     * it will return a const_iterator to the rightmost node 
+     * of the const tree.
+    */
     const_iterator tail() const noexcept{
             if (!head)
             {
@@ -216,7 +239,10 @@ public:
         return const_iterator(curr);
     }
 
-    /*ctail*/
+    /** ctail:
+     * it will return a const_iterator to the rightmost node
+     * of the tree, both for const and non-const tree.
+    */
     const_iterator ctail() const noexcept{
             if (!head)
             {

@@ -17,11 +17,9 @@
 \item 
 \mbox{\hyperlink{structnode_ab6d4417562cd9d19afb89ddcf0107b73}{node}} (const \mbox{\hyperlink{structnode}{node}} \&node\+\_\+to\+\_\+copy, \mbox{\hyperlink{structnode}{node}} $\ast$new\+\_\+parent)
 \item 
-\mbox{\Hypertarget{structnode_a58e8882d88db368a156818a0262356c7}\label{structnode_a58e8882d88db368a156818a0262356c7}} 
-void {\bfseries create\+\_\+left\+\_\+child} (T child\+\_\+attr)
+void \mbox{\hyperlink{structnode_a58e8882d88db368a156818a0262356c7}{create\+\_\+left\+\_\+child}} (T child\+\_\+attr)
 \item 
-\mbox{\Hypertarget{structnode_a58b501707cebb07ba19832887a1e273a}\label{structnode_a58b501707cebb07ba19832887a1e273a}} 
-void {\bfseries create\+\_\+right\+\_\+child} (T child\+\_\+attr)
+void \mbox{\hyperlink{structnode_a58b501707cebb07ba19832887a1e273a}{create\+\_\+right\+\_\+child}} (T child\+\_\+attr)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -38,8 +36,7 @@ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{structnode}{node}} $>$ {\bfseries lef
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{structnode_ab3f85346e63728de537234c5e66d032d}\label{structnode_ab3f85346e63728de537234c5e66d032d}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{structnode}{node}} \&x)
+std\+::ostream \& \mbox{\hyperlink{structnode_ab3f85346e63728de537234c5e66d032d}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{structnode}{node}} \&x)
 \end{DoxyCompactItemize}
 
 
@@ -90,6 +87,33 @@ Custom constructor with input parent node$\ast$ \mbox{\Hypertarget{structnode_ab
 \mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::\mbox{\hyperlink{structnode}{node}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structnode}{node}}$<$ T $>$ \&}]{node\+\_\+to\+\_\+copy,  }\item[{\mbox{\hyperlink{structnode}{node}}$<$ T $>$ $\ast$}]{new\+\_\+parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Copy custom constructor. It creates a new node with the attribute of the starting node, but with the parent equal to a input pointer. The process is then iterated for all of its children, such that at the end, a deep copy of its subtree is performed 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structnode_a58e8882d88db368a156818a0262356c7}\label{structnode_a58e8882d88db368a156818a0262356c7}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!create\_left\_child@{create\_left\_child}}
+\index{create\_left\_child@{create\_left\_child}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{create\_left\_child()}{create\_left\_child()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::create\+\_\+left\+\_\+child (\begin{DoxyParamCaption}\item[{T}]{child\+\_\+attr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function create a left child for a input node \mbox{\Hypertarget{structnode_a58b501707cebb07ba19832887a1e273a}\label{structnode_a58b501707cebb07ba19832887a1e273a}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!create\_right\_child@{create\_right\_child}}
+\index{create\_right\_child@{create\_right\_child}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{create\_right\_child()}{create\_right\_child()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{structnode}{node}}$<$ T $>$\+::create\+\_\+right\+\_\+child (\begin{DoxyParamCaption}\item[{T}]{child\+\_\+attr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function create a right child for a input node 
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structnode_ab3f85346e63728de537234c5e66d032d}\label{structnode_ab3f85346e63728de537234c5e66d032d}} 
+\index{node$<$ T $>$@{node$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!node$<$ T $>$@{node$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{structnode}{node}}$<$ T $>$ \&}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Custom overloading of the put to operator for the node struct. This function was created with a debugging purpouse, and can be used only if the attr of the nodes is of type pair. 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{structnode_ad789e1c037633ce25cf7a1cd851b4997}\label{structnode_ad789e1c037633ce25cf7a1cd851b4997}} 

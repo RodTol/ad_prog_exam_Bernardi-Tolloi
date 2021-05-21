@@ -114,58 +114,57 @@ $(function() {
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">/*Functions: */</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">/*This function create a left child of a node of our choice*/</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> create_left_child(T child_attr) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        left = std::make_unique&lt;node&gt;(std::forward&lt;T&gt;(child_attr), <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">/*This function create a right child of a node of our choice*/</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> create_right_child(T child_attr) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">right</a> = std::make_unique&lt;node&gt;(std::forward&lt;T&gt;(child_attr), <span class="keyword">this</span>); </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">friend</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">/*custom overloading of the put to operator for the nodes. This function</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">    was created with a debugging purpouse, and can be used only if the attr</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">    of the nodes is of type pair.*/</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="structnode.html">node</a>&amp; x) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;Key &quot;</span> &lt;&lt; x.<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">if</span> (x.left.get())</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;           os &lt;&lt; <span class="stringliteral">&quot;Left child &quot;</span> &lt;&lt; (*x.left.get()).<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;No left child\n&quot;</span>; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">if</span> (x.<a class="code" href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">right</a>.get())</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;Right child &quot;</span> &lt;&lt;  (*x.<a class="code" href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">right</a>.get()).<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;No right child\n&quot;</span>; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (x.<a class="code" href="structnode.html#aa656fa405e35371dbe1f15bfe2729e18">parent</a>)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;           os &lt;&lt; <span class="stringliteral">&quot;Parent node &quot;</span> &lt;&lt;  (*x.<a class="code" href="structnode.html#aa656fa405e35371dbe1f15bfe2729e18">parent</a>).<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;No parent node\n&quot;</span>; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structnode.html#a58e8882d88db368a156818a0262356c7">   70</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structnode.html#a58e8882d88db368a156818a0262356c7">create_left_child</a>(T child_attr) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        left = std::make_unique&lt;node&gt;(std::forward&lt;T&gt;(child_attr), <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="structnode.html#a58b501707cebb07ba19832887a1e273a">   74</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structnode.html#a58b501707cebb07ba19832887a1e273a">create_right_child</a>(T child_attr) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">right</a> = std::make_unique&lt;node&gt;(std::forward&lt;T&gt;(child_attr), <span class="keyword">this</span>); </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">friend</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="structnode.html#ab3f85346e63728de537234c5e66d032d">   82</a></span>&#160;    std::ostream&amp; <a class="code" href="structnode.html#ab3f85346e63728de537234c5e66d032d">operator&lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="structnode.html">node</a>&amp; x) {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;Key &quot;</span> &lt;&lt; x.<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> (x.left.get())</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;           os &lt;&lt; <span class="stringliteral">&quot;Left child &quot;</span> &lt;&lt; (*x.left.get()).<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;No left child\n&quot;</span>; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">if</span> (x.<a class="code" href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">right</a>.get())</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;Right child &quot;</span> &lt;&lt;  (*x.<a class="code" href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">right</a>.get()).<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;No right child\n&quot;</span>; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> (x.<a class="code" href="structnode.html#aa656fa405e35371dbe1f15bfe2729e18">parent</a>)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;           os &lt;&lt; <span class="stringliteral">&quot;Parent node &quot;</span> &lt;&lt;  (*x.<a class="code" href="structnode.html#aa656fa405e35371dbe1f15bfe2729e18">parent</a>).<a class="code" href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">attr</a>.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            os &lt;&lt; <span class="stringliteral">&quot;No parent node\n&quot;</span>; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructnode_html_ad789e1c037633ce25cf7a1cd851b4997"><div class="ttname"><a href="structnode.html#ad789e1c037633ce25cf7a1cd851b4997">node::attr</a></div><div class="ttdeci">T attr</div><div class="ttdef"><b>Definition:</b> node.hpp:22</div></div>
+<div class="ttc" id="astructnode_html_a58e8882d88db368a156818a0262356c7"><div class="ttname"><a href="structnode.html#a58e8882d88db368a156818a0262356c7">node::create_left_child</a></div><div class="ttdeci">void create_left_child(T child_attr)</div><div class="ttdef"><b>Definition:</b> node.hpp:70</div></div>
 <div class="ttc" id="astructnode_html"><div class="ttname"><a href="structnode.html">node</a></div><div class="ttdef"><b>Definition:</b> node.hpp:17</div></div>
 <div class="ttc" id="astructnode_html_aec9a9ffda148a83afbbda14f471d0fbc"><div class="ttname"><a href="structnode.html#aec9a9ffda148a83afbbda14f471d0fbc">node::node</a></div><div class="ttdeci">node(const T &amp;input, node *input_pointer) noexcept</div><div class="ttdef"><b>Definition:</b> node.hpp:44</div></div>
+<div class="ttc" id="astructnode_html_ab3f85346e63728de537234c5e66d032d"><div class="ttname"><a href="structnode.html#ab3f85346e63728de537234c5e66d032d">node::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const node &amp;x)</div><div class="ttdef"><b>Definition:</b> node.hpp:82</div></div>
 <div class="ttc" id="astructnode_html_ae625e7985cf0d512ea40eb5d1ed53bd1"><div class="ttname"><a href="structnode.html#ae625e7985cf0d512ea40eb5d1ed53bd1">node::right</a></div><div class="ttdeci">std::unique_ptr&lt; node &gt; right</div><div class="ttdef"><b>Definition:</b> node.hpp:25</div></div>
 <div class="ttc" id="astructnode_html_ab6d4417562cd9d19afb89ddcf0107b73"><div class="ttname"><a href="structnode.html#ab6d4417562cd9d19afb89ddcf0107b73">node::node</a></div><div class="ttdeci">node(const node &amp;node_to_copy, node *new_parent)</div><div class="ttdef"><b>Definition:</b> node.hpp:53</div></div>
 <div class="ttc" id="astructnode_html_aa656fa405e35371dbe1f15bfe2729e18"><div class="ttname"><a href="structnode.html#aa656fa405e35371dbe1f15bfe2729e18">node::parent</a></div><div class="ttdeci">node * parent</div><div class="ttdef"><b>Definition:</b> node.hpp:29</div></div>
+<div class="ttc" id="astructnode_html_a58b501707cebb07ba19832887a1e273a"><div class="ttname"><a href="structnode.html#a58b501707cebb07ba19832887a1e273a">node::create_right_child</a></div><div class="ttdeci">void create_right_child(T child_attr)</div><div class="ttdef"><b>Definition:</b> node.hpp:74</div></div>
 <div class="ttc" id="astructnode_html_a489c42451796f699503f48b9e45a4c21"><div class="ttname"><a href="structnode.html#a489c42451796f699503f48b9e45a4c21">node::node</a></div><div class="ttdeci">node(const T &amp;input) noexcept</div><div class="ttdef"><b>Definition:</b> node.hpp:37</div></div>
 <div class="ttc" id="astructnode_html_a9f90ba0e5a5939152034c42eaa792813"><div class="ttname"><a href="structnode.html#a9f90ba0e5a5939152034c42eaa792813">node::~node</a></div><div class="ttdeci">~node()=default</div></div>
 <div class="ttc" id="astructnode_html_a444df3103a443654823ca9b4380451a8"><div class="ttname"><a href="structnode.html#a444df3103a443654823ca9b4380451a8">node::node</a></div><div class="ttdeci">node()=default</div></div>

@@ -85,11 +85,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aec9a9ffda148a83afbbda14f471d0fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d4417562cd9d19afb89ddcf0107b73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#ab6d4417562cd9d19afb89ddcf0107b73">node</a> (const <a class="el" href="structnode.html">node</a> &amp;node_to_copy, <a class="el" href="structnode.html">node</a> *new_parent)</td></tr>
 <tr class="separator:ab6d4417562cd9d19afb89ddcf0107b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e8882d88db368a156818a0262356c7"><td class="memItemLeft" align="right" valign="top"><a id="a58e8882d88db368a156818a0262356c7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create_left_child</b> (T child_attr)</td></tr>
+<tr class="memitem:a58e8882d88db368a156818a0262356c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#a58e8882d88db368a156818a0262356c7">create_left_child</a> (T child_attr)</td></tr>
 <tr class="separator:a58e8882d88db368a156818a0262356c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58b501707cebb07ba19832887a1e273a"><td class="memItemLeft" align="right" valign="top"><a id="a58b501707cebb07ba19832887a1e273a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>create_right_child</b> (T child_attr)</td></tr>
+<tr class="memitem:a58b501707cebb07ba19832887a1e273a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#a58b501707cebb07ba19832887a1e273a">create_right_child</a> (T child_attr)</td></tr>
 <tr class="separator:a58b501707cebb07ba19832887a1e273a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -106,8 +104,7 @@ std::unique_ptr&lt; <a class="el" href="structnode.html">node</a> &gt;&#160;</td
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ab3f85346e63728de537234c5e66d032d"><td class="memItemLeft" align="right" valign="top"><a id="ab3f85346e63728de537234c5e66d032d"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="structnode.html">node</a> &amp;x)</td></tr>
+<tr class="memitem:ab3f85346e63728de537234c5e66d032d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#ab3f85346e63728de537234c5e66d032d">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structnode.html">node</a> &amp;x)</td></tr>
 <tr class="separator:ab3f85346e63728de537234c5e66d032d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -278,6 +275,105 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Copy custom constructor. It creates a new node with the attribute of the starting node, but with the parent equal to a input pointer. The process is then iterated for all of its children, such that at the end, a deep copy of its subtree is performed </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a58e8882d88db368a156818a0262356c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e8882d88db368a156818a0262356c7">&#9670;&nbsp;</a></span>create_left_child()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structnode.html">node</a>&lt; T &gt;::create_left_child </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>child_attr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function create a left child for a input node </p>
+
+</div>
+</div>
+<a id="a58b501707cebb07ba19832887a1e273a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58b501707cebb07ba19832887a1e273a">&#9670;&nbsp;</a></span>create_right_child()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structnode.html">node</a>&lt; T &gt;::create_right_child </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>child_attr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function create a right child for a input node </p>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ab3f85346e63728de537234c5e66d032d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3f85346e63728de537234c5e66d032d">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structnode.html">node</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Custom overloading of the put to operator for the node struct. This function was created with a debugging purpouse, and can be used only if the attr of the nodes is of type pair. </p>
 
 </div>
 </div>
