@@ -3,7 +3,7 @@
 *
 *Purpouse: create a custom struct named iterator which 
 *implements an iterator for a binary search tree (BST). 
-*Each iterator has one raw pointer, named current.
+*Each iterator has one raw pointer to a node, named current.
 *
 *Date: May, 2021.
 */
