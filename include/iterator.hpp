@@ -1,9 +1,11 @@
 /*
-Author: Rodolfo Tolloi, Giulia Bernardi.
-
-Purpouse:   VA SCRITTO !!!!!!!!!!!!!!!11.
-
-Date: May, 2021.
+*Author: Rodolfo Tolloi, Giulia Bernardi.
+*
+*Purpouse: create a custom struct named iterator which 
+*implements an iterator for a binary search tree (BST). 
+*Each iterator has one raw pointer, named current.
+*
+*Date: May, 2021.
 */
 
 #include<iterator>
@@ -11,45 +13,54 @@ Date: May, 2021.
 template<typename node_type, typename attr_type>
 struct _iterator {
 
-  /*raw pointer to the starting node*/
+  /**Raw pointer to the starting node.*/
   node_type* current;
 
-  /*interface for the iterators*/
+  /**Interface for the iterators*/
   using value_type = attr_type;
   using reference = value_type&;
   using pointer = value_type*;
   using difference_type = std::ptrdiff_t;
   using iterator_category = std::forward_iterator_tag;
 
-  /*default cost and destr*/
+  /**Default costructor and destructor.*/
   _iterator() = default;
   ~_iterator() = default;
 
-  /*custom costr. Mettiamo explicit e quindi dobbiamo
-  chiamare il costr ogni volta, poichè non abbiamo la 
-  conversione automatica da nodo a iterator*/
+  /**Custom costructor which takes as input a raw
+  * pointer to a node.*/
   explicit _iterator (node_type* input) noexcept:
       current{input} {};
 
-  /*dereference operator*/
+  /**Dereference operator.*/
   reference operator*() const noexcept { return current->attr; }
 
-  /*acces operator*/
+  /**Acces operator.*/
   pointer operator->() const noexcept { return &**this; }
 
-  /*pre-increment operator*/
-  /*SPIEGA COME FUNZIONA*/
+  /**Pre-increment operator.*/
+  /** The pre-increment operator allows us to navigate the
+  *tree in ascending order from a starting node.
+  * To do so, we had to find the key with the smallest
+  * bigger key with respect to the starting node.
+  *First we check if the node has a right child. If that is 
+  *the case we check iteratively if there are left children.
+  *Once we reach a point in which there are no more left children,
+  * we reached the right node and therefore can stop.
+  *If on the other hand the starting node had no right child, then
+  *we need to go back to its parent. We continue to go back until
+  *we either reach the head of the tree or we reach a node which is
+  * a right child. In the first case the root is the node we were
+  * looking for, while in the second case the parent of the right
+  * child node is the one we were looking for.*/
   _iterator &operator++() noexcept {
 
     node_type* dad;
 
       if (current->right)
       {
-        /*metto current uguale a un raw pointer (grazie a .get) che punta
-        all'elemnto puntato da right del mio current originale*/
         current = current->right.get();
 
-          /*finchè ho un left*/
           while (current->left)
           {
               current = current->left.get();
@@ -60,7 +71,6 @@ struct _iterator {
 
       else 
       {
-        /*passo al genitore*/
         dad = current->parent;
   
           while (dad && dad->right.get() == current)
@@ -75,19 +85,20 @@ struct _iterator {
 
   }
   
-  /*put to*/
+  /** Custom overloading of the put to operator. It was
+  *implemented mainly for debugging purposes.*/
   friend
   std::ostream& operator<<(std::ostream& os, const _iterator& x) {
   os << x.current;
   return os;
   }
   
-  /*logic equal*/
+  /**Logic equal.*/
   bool operator==(const _iterator& input) const noexcept {
     return input.current == current;
   }
 
-  /*logic not equal*/
+  /**Logic not equal.*/
   bool operator!=(const _iterator& input) const noexcept {
     return !(input == *this);
   }
