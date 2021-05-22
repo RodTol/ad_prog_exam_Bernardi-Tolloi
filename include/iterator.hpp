@@ -35,7 +35,7 @@ struct _iterator {
   /**Dereference operator.*/
   reference operator*() const noexcept { return current->attr; }
 
-  /**Acces operator.*/
+  /**Access operator.*/
   pointer operator->() const noexcept { return &**this; }
 
   /**Pre-increment operator.*/
