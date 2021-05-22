@@ -4,7 +4,7 @@
 *Purpouse: create a custom struct named node which 
 *implements a node for a binary search tree (BST). 
 *Each node has two unique pointers, named right and
-*left, and can have only one father's node.
+*left, and can have only one father node.
 *
 *Date: May, 2021.
 */
@@ -48,8 +48,8 @@ struct node {
     parent{input_pointer} {}
 
     /**Copy custom constructor. It creates a new node with the attribute of the starting node,
-    * but with the parent equal to a input pointer. The process is then iterated for all of its
-    * children, such that at the end, a deep copy of its subtree is performed */
+    * but with the parent equal to an input pointer. The process is then iterated for all of its
+    * children, such that at the end, a deep copy of its subtree is performed. */
     node(const node& node_to_copy, node* new_parent):
     attr{node_to_copy.attr},
     right{nullptr},
@@ -66,7 +66,7 @@ struct node {
 
     /*Functions: */
 
-    /**This function create a left child for a input node*/
+    /**This function creates a left child for the node based on an input attribute*/
     void create_left_child(T child_attr) {
         left = std::make_unique<node>(std::forward<T>(child_attr), this);
     }
