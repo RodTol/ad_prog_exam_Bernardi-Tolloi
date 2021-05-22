@@ -1,7 +1,7 @@
 /**
 *Author: Rodolfo Tolloi, Giulia Bernardi.
 *
-*Purpouse: create a custom class named node which 
+*Purpouse: create a custom struct named node which 
 *implements a node for a binary search tree (BST). 
 *Each node has two unique pointers, named right and
 *left, and can have only one father's node.
