@@ -1,27 +1,17 @@
 def reverse_dict(d):
-    possible_values = d.keys()
+    
+    #We create a set with all the keys of the reverse dictionary with a set comprehension.
+    possible_keys = {w for v in d.values() for w in v}
 
-    d_values = d.values()
-    possible_keys = []
-
-    for v in d_values :
-        for w in v :
-            if (possible_keys.count(w)==0) :
-                possible_keys.append(w)
-    #print(possible_keys)
-
-    #creiamo le coppie inverse
-
-    tuple_list = [(ke, []) for ke in possible_keys]
-
-    for v in possible_values : #possible values sono a b c
-        for j,w in enumerate(possible_keys) : #possible key sono 1,2,3,45,6
-            if (d[v].count(w)!=0) :
-                tuple_list[j][1].append(v)
-
-    #print(tuple_list)
-
+    #We create the inverse tuples with a list comprehension.
+    tuple_list = [(ke, [v for v in d.keys() if d[v].count(ke)!=0]) for ke in possible_keys]
+    
+    #We create the reverse dictionary with a dictionary comprehension.
     rev_dict = {i[0] : i[1] for i in tuple_list }
+    
+    #The program could be implemented in just one line as shown in the next line, but we decided to do 3 steps for a better readability.
+    #There is also no significant gain in execution time.
+    #rev_dict = {i[0] : i[1] for i in [(ke, [v for v in d.keys() if d[v].count(ke)!=0]) for ke in {w for v in d.values() for w in v}] }
     return rev_dict
 
 
