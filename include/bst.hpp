@@ -499,7 +499,7 @@ public:
                     }
                 }
             }
-            /*the node only has aleft child*/
+            /*the node only has a left child*/
             else if ( (_find(x)->left) &&  !(_find(x)->right) )
             {
                 if ( !(_find(x)->parent) )
