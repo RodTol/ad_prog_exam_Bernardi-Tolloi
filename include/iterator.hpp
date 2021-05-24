@@ -40,16 +40,16 @@ struct _iterator {
 
   /**Pre-increment operator.*/
   /** The pre-increment operator allows us to navigate the
-  *tree in ascending order from a starting node.
+  * tree in ascending order from a starting node.
   * To do so, we have to find the node with the smallest
   * bigger key with respect to the starting node.
-  *First we check if the node has a right child. If that is 
-  *the case we check iteratively if there are left children of the
+  * First we check if the node has a right child. If that is 
+  * the case we check iteratively if there are left children of the
   * right child. Once we reach a point in which there are no more left children,
   * we reached the right node and therefore can stop.
-  *If on the other hand the starting node had no right child, then
-  *we need to go back to its parent. We continue to go back until
-  *we either reach the head of the tree or we reach a node which is
+  * If on the other hand the starting node had no right child, then
+  * we need to go back to its parent. We continue to go back until
+  * we either reach the head of the tree or we reach a node which is
   * a right child. In the first case the root is the node we were
   * looking for, while in the second case the parent of the right
   * child node is the one we were looking for.*/
