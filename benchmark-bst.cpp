@@ -1,9 +1,10 @@
 /*
-Author: Rodolfo Tolloi, Giulia Bernardi.
-
-Purpouse:   VA SCRITTO !!!!!!!!!!!!!!!11.
-
-Date: May, 2021.
+*Author: Rodolfo Tolloi, Giulia Bernardi.
+*
+*Purpouse:   this program performs a benchmark between our 
+* implementation of BST and the standard function std::map.
+*
+*Date: May, 2021.
 */
 
 
