@@ -135,8 +135,8 @@ public:
     bst& operator=(const bst& tree_to_copy) {
         if (this!=&tree_to_copy)
         {
-             clear();
-            head = std::make_unique<node <attr_type> >(*tree_to_copy.head.get(), nullptr);
+            auto tmp  {tree_to_copy};
+            *this = std::move(tmp);
         }
         return *this;
     }   

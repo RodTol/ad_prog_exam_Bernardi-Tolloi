@@ -58,6 +58,17 @@ int main() {
         std::cout << "This is tree\n";
         std::cout << tree << std::endl;
 
+        bst tree_copy_2;
+        tree_copy_2 = tree;
+        std::cout << "I create a identical bst using the copy assignment" << std::endl;
+        std::cout << tree_copy_2 << std::endl;
+
+        tree_copy_2.erase(12);
+        std::cout << "I erased the node with key = 12 from tree_copy_2, to show\nwe performed a deep copy.\n";
+        std::cout << tree_copy_2 << std::endl;
+        std::cout << "This is tree\n";
+        std::cout << tree << std::endl;
+
         tree = std::move(tree_copy);
         std::cout << "I moved tree_copy on tree with a std::move assignment\n";
         std::cout << tree << std::endl;
