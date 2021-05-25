@@ -1,7 +1,8 @@
 /*
 Author: Rodolfo Tolloi, Giulia Bernardi.
 
-Purpouse:   VA SCRITTO !!!!!!!!!!!!!!!11.
+Purpouse:  This file contains a series of tests, which
+check if all the features of the class bst work correctly.
 
 Date: May, 2021.
 */
