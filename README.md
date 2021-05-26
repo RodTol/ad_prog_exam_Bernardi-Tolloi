@@ -12,7 +12,7 @@ This file contains a series of tests to check that the binary search tree class 
 
 ### - benchmark-bst.cpp
 [link to file](./benchmark-bst.cpp)\
-This file contain a simple benchmark of the find function of the `bst` class, against the equivalent function of `std::map`.
+This file contains a simple benchmark of the find function of the `bst` class, against the equivalent function of `std::map`.
 
 ### - makefile
 [link to file](./Makefile)\
@@ -21,13 +21,13 @@ This file is used to compile in the right way both benchmark-bst.cpp and main.cp
 ## Folder: Include
 ### - node.hpp
 [link to file](./include/node.hpp)\
-This file creates a struct `node` with some base function and operators.
+This file creates a struct `node` with some base functions and operators.
 ### - iterator.hpp
 [link to file](./include/iterator.hpp)\
-This file creates a struct `iterator` with some base function and operators. In particular the pre-increment operator `++`.
+This file creates a struct `iterator` with some base functions and operators. In particular the pre-increment operator `++`.
 ### - bst.hpp
 [link to file](./include/bst.hpp)\
-This file creates a class `bst` with some function and operators.
+This file creates a class `bst` with some functions and operators.
 
 ## Folder: Doxygen
 ### - doxy.in
@@ -44,4 +44,4 @@ To run the *main* program, the user must use the command "./main.x". Similarly f
 
 #
 ## Report:
-Inside "report.pdf" [link to file](./report.pdf) is contained a short report about the code.
+Inside "report.pdf" [link to file](./Report.pdf) is contained a short report about the code.
