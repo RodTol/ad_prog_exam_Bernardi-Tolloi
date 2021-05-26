@@ -50,7 +50,7 @@ struct _iterator {
   * If on the other hand the starting node had no right child, then
   * we need to go back to its parent. We continue to go back until
   * we either reach the head of the tree or we reach a node which is
-  * a right child. In the first case the root is the node we were
+  * a left child. In the first case the root is the node we were
   * looking for, while in the second case the parent of the right
   * child node is the one we were looking for.*/
   _iterator &operator++() noexcept {
