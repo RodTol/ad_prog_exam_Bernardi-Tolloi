@@ -16,8 +16,7 @@
 template <typename T>
 struct node {
 
-    /**Attribute of the node (which can be of any type
-    *including a pair)
+    /**Attribute of the node
     */
     T attr;
 
