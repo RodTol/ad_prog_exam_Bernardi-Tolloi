@@ -21,8 +21,10 @@ struct node {
     */
     T attr;
 
-    /**Unique pointers to children*/ 
+    /**Unique pointers to right children*/ 
     std::unique_ptr<node> right;
+
+    /**Unique pointers to left children*/
     std::unique_ptr<node> left;
 
     /**Raw pointer to parent*/
