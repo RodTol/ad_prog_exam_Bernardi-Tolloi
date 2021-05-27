@@ -121,7 +121,7 @@ public:
 
     /**Custom constructor, which takes an attribute and creates a node
      * which will be the first of a bst.*/
-    explicit bst (attr_type starting_attr) noexcept:
+    explicit bst (attr_type starting_attr) :
     head {std::make_unique<node <attr_type> >(std::forward<attr_type>(starting_attr), nullptr)} {}
 
     /**Copy constructor*/
