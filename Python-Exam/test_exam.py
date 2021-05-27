@@ -1,5 +1,7 @@
 def reverse_dict(d):
     
+    """This funtion takes as input a dictionary and returns a reverse dictionary."""
+    
     #We create a set with all the keys of the reverse dictionary with a set comprehension.
     possible_keys = {w for v in d.values() for w in v}
 
