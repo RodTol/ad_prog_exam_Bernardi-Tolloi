@@ -26,7 +26,7 @@ struct node {
     /**Unique pointer to left child*/
     std::unique_ptr<node> left;
 
-    /**Raw pointer to parent*/
+    /**Pointer to parent*/
     node* parent;
 
     /**Default constructor*/
