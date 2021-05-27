@@ -121,7 +121,7 @@ public:
 
     /**Custom constructor, which takes an attribute and creates a node
      * which will be the first of a bst.*/
-    explicit bst (attr_type starting_attr) noexcept:
+    explicit bst (attr_type starting_attr) :
     head {std::make_unique<node <attr_type> >(std::forward<attr_type>(starting_attr), nullptr)} {}
 
     /**Copy constructor*/
@@ -464,11 +464,10 @@ public:
      * to check if this node exists. There are 3 case: the node
      * has no children, it has one child (left or right) or it has 
      * both children. In the first case the function simply removes
-     * the node by resetting the father's left or right pointer and the 
-     * objective node's parent pointer. In the second case 
-     * it will also connect the father node to the objective node's child,
-     * preserving the structure of the tree. The last case is
-     * solved by moving the left subtree of the objective node
+     * the node by resetting the father's left or right pointer.  
+     * In the second case it will also connect the father node to
+     * the objective node's child, preserving the structure of the tree.
+     * The last case is solved by moving the left subtree of the objective node
      * to the leftmost element of the right subtree of the
      * objective node. Thanks to this operation, the node will
      * only have a right child, and so the problem can be solved
@@ -481,8 +480,6 @@ public:
             return;
         }
         else {
-
-            auto tmp = _find(x);
             /*The node with input key has no children*/
             if ( !(_find(x)->left)  &&  !(_find(x)->right) ) 
             {
@@ -500,7 +497,6 @@ public:
                     {
                         _find(x)->parent->right.reset();
                     }
-                    tmp->parent = nullptr;
                 }
             }
             /*the node only has a left child*/
@@ -522,7 +518,7 @@ public:
                     {
                         _find(x)->parent->right.reset(_find(x)->left.release());
                     }
-                    tmp->parent = nullptr;
+                  
                 }
                 
             }
@@ -545,7 +541,7 @@ public:
                     {
                         _find(x)->parent->right.reset(_find(x)->right.release());
                     }
-                    tmp->parent = nullptr;
+                  
                 }
                 
             }
@@ -569,5 +565,4 @@ public:
 
 
 };
-
 

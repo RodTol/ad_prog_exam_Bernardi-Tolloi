@@ -1,4 +1,4 @@
-/*
+/**
 *Author: Rodolfo Tolloi, Giulia Bernardi.
 *
 *Purpouse:   this program performs a benchmark between our 
