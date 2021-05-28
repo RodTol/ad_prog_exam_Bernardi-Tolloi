@@ -42,7 +42,7 @@ struct node {
     parent{nullptr} {} 
 
     /**Custom constructor with input parent node* */
-    node(const T& input, node* input_pointer) noexcept:
+    node(const T& input, node* input_pointer) :
     attr{input},
     right{nullptr},
     left{nullptr},
