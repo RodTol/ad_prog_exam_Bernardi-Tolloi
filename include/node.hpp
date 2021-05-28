@@ -35,7 +35,7 @@ struct node {
     ~node () = default;
     
     /**Custom constructor without input parent node* */
-    explicit node(const T& input) noexcept :
+    explicit node(const T& input) :
     attr{input},
     right{nullptr},
     left{nullptr},
