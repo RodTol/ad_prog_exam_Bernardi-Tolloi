@@ -56,10 +56,10 @@ struct node {
     right{nullptr},
     left{nullptr},
     parent{new_parent} {
-        if (node_to_copy.right) {
+        if (node_to_copy.right.get()) {
             right = std::make_unique<node>(*node_to_copy.right, this);
         }
-        if (node_to_copy.left) {
+        if (node_to_copy.left.get()) {
             left = std::make_unique<node>(*node_to_copy.left, this);
         }
     }
